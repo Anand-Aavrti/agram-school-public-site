@@ -16,6 +16,7 @@ import TestimonialsSection from '@/components/TestimonialsSection'
 import AdmissionProcess from '@/components/AdmissionProcess'
 import AdmissionsCTA from '@/components/AdmissionsCTA'
 import Footer from '@/components/Footer'
+import PopupNotice from '@/components/PopupNotice'
 
 export default function HomePage() {
   const [settings, setSettings] = useState(null)
@@ -47,6 +48,7 @@ export default function HomePage() {
       <AdmissionProcess />
       <AdmissionsCTA />
       <Footer />
+      <PopupNotice />
     </main>
   )
 }

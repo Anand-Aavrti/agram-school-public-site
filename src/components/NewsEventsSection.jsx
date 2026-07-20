@@ -1,20 +1,21 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, MapPin } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, MapPin, CalendarDays } from 'lucide-react'
 import { getCollection, isVisible } from '@/lib/firestore'
 import FadeUp from './FadeUp'
 
-const NEWS_IMAGES = [
-  'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80',
-  'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=900&q=80',
-  'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=900&q=80',
-  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80',
-]
+const NEWS_IMAGES = ['/banner1.jpeg', '/banner2.jpeg', '/banner3.jpeg', '/science.jpeg']
+const ROTATE_MS = 5000
+
+const day = (d) => (d ? new Date(d).getDate() : '--')
+const mon = (d) => (d ? new Date(d).toLocaleString('default', { month: 'short' }) : '')
 
 export default function NewsEventsSection({ showNews = true, showEvents = true }) {
   const [news, setNews] = useState([])
   const [events, setEvents] = useState([])
+  const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
 
   useEffect(() => {
     if (showNews) {
@@ -24,15 +25,25 @@ export default function NewsEventsSection({ showNews = true, showEvents = true }
     if (showEvents) {
       const today = new Date().toISOString().slice(0, 10)
       getCollection('events', { orderByField: 'date', orderDir: 'asc' })
-        .then(data => setEvents(data.filter(isVisible).filter(e => !e.date || e.date >= today).slice(0, 3)))
+        .then(data => setEvents(data.filter(isVisible).filter(e => !e.date || e.date >= today).slice(0, 4)))
     }
   }, [showNews, showEvents])
 
+  // Auto-rotate the spotlight story; pause while the visitor hovers it.
+  useEffect(() => {
+    if (paused || news.length < 2) return
+    const t = setInterval(() => setActive(a => (a + 1) % news.length), ROTATE_MS)
+    return () => clearInterval(t)
+  }, [paused, news.length])
+
   if (!showNews && !showEvents) return null
 
+  const story = news[active]
+
   return (
-    <section className="py-24 lg:py-32 hairline-t">
+    <section className="py-24 lg:py-32 hairline-t bg-cream">
       <div className="max-w-grid mx-auto px-6 lg:px-12">
+
         <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
           <FadeUp direction="down" className="max-w-xl">
             <p className="eyebrow">Stay informed</p>
@@ -47,74 +58,122 @@ export default function NewsEventsSection({ showNews = true, showEvents = true }
           )}
         </div>
 
-        {showNews && (
-          news.length === 0 ? (
-            <p className="text-inkmute text-sm mb-4">News will appear here.</p>
-          ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {news.map((n, i) => (
-                <FadeUp key={n.id} delay={i * 80} direction="up">
-                  <Link href={`/news/${n.id}`} className="group block card card-hover overflow-hidden border border-hairline h-full">
-                    <div className="relative aspect-[4/3] overflow-hidden img-hover">
-                      <img src={n.imageUrl || NEWS_IMAGES[i % NEWS_IMAGES.length]} alt=""
-                        className="w-full h-full object-cover img-treat" />
-                      <span className="absolute top-3 left-3 badge bg-crimson text-white">{n.category || 'News'}</span>
-                    </div>
-                    <div className="p-5">
-                      <p className="text-[12.5px] text-inkmute font-medium">{n.publishDate || ''}</p>
-                      <h3 className="font-display font-semibold text-lg leading-snug mt-2 group-hover:text-crimson transition-colors">
-                        {n.title}
-                      </h3>
-                      <p className="text-inkmute text-[13.5px] leading-relaxed mt-2 line-clamp-2">{n.summary}</p>
-                    </div>
-                  </Link>
-                </FadeUp>
-              ))}
-            </div>
-          )
-        )}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-        {showEvents && (
-          <div className={showNews ? 'mt-16' : ''}>
-            <div className="flex items-baseline justify-between mb-6">
-              <p className="eyebrow">Coming up</p>
-              {!showNews && (
-                <Link href="/events" className="link-quiet text-[14.5px] font-semibold flex items-center gap-2">
-                  All events <ArrowRight className="h-4 w-4" />
-                </Link>
+          {/* Rotating spotlight story — full-bleed photo, text pops over it */}
+          {showNews && (
+            <FadeUp direction="zoom" className={showEvents ? 'lg:col-span-8' : 'lg:col-span-12'}>
+              {news.length === 0 ? (
+                <div className="aspect-[16/9] border border-hairline bg-white flex items-center justify-center">
+                  <p className="text-inkmute text-sm">News will appear here.</p>
+                </div>
+              ) : (
+                <div
+                  className="relative aspect-[4/3] sm:aspect-[16/9] overflow-hidden group"
+                  onMouseEnter={() => setPaused(true)}
+                  onMouseLeave={() => setPaused(false)}
+                >
+                  {/* Photo layers */}
+                  {news.map((n, i) => (
+                    <img key={n.id} src={n.imageUrl || NEWS_IMAGES[i % NEWS_IMAGES.length]} alt=""
+                      className={`absolute inset-0 w-full h-full object-cover img-treat transition-all duration-[1200ms] ease-out ${
+                        i === active ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                      }`} />
+                  ))}
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/35 to-transparent" />
+
+                  {/* Story text — remounts on each change so it pops up fresh */}
+                  {story && (
+                    <div key={story.id} className="absolute bottom-0 left-0 right-0 p-6 sm:p-10 spotlight-pop">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="badge bg-crimson text-white">{story.category || 'News'}</span>
+                        {story.publishDate && (
+                          <span className="text-white/70 text-[12px] font-semibold tracking-[0.12em] uppercase">
+                            {story.publishDate}
+                          </span>
+                        )}
+                      </div>
+                      <Link href={`/news/${story.id}`} className="block group/title">
+                        <h3 className="font-display font-semibold text-white text-2xl sm:text-4xl leading-[1.15] max-w-2xl group-hover/title:text-gold transition-colors duration-300">
+                          {story.title}
+                        </h3>
+                      </Link>
+                      {story.summary && (
+                        <p className="text-white/70 text-[14.5px] leading-relaxed mt-3 max-w-xl line-clamp-2 hidden sm:block">
+                          {story.summary}
+                        </p>
+                      )}
+                      <Link href={`/news/${story.id}`}
+                        className="inline-flex items-center gap-2 mt-5 text-gold text-[13.5px] font-semibold hover:gap-3.5 transition-all">
+                        Read more <ArrowUpRight className="h-3.5 w-3.5" />
+                      </Link>
+                    </div>
+                  )}
+
+                  {/* Controls */}
+                  {news.length > 1 && (
+                    <>
+                      <div className="absolute top-5 right-5 sm:top-6 sm:right-8 text-white/50 font-display text-[13px] tabular-nums">
+                        {String(active + 1).padStart(2, '0')} / {String(news.length).padStart(2, '0')}
+                      </div>
+                      <div className="absolute top-5 left-5 sm:top-6 sm:left-8 flex gap-2">
+                        {news.map((_, i) => (
+                          <button key={i} onClick={() => setActive(i)} aria-label={`Story ${i + 1}`}
+                            className={`h-[3px] rounded-full transition-all duration-400 cursor-pointer ${
+                              i === active ? 'w-8 bg-gold' : 'w-4 bg-white/40 hover:bg-white/70'
+                            }`} />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
               )}
-            </div>
-            {events.length === 0 ? (
-              <p className="text-inkmute text-sm">No upcoming events.</p>
-            ) : (
-              <div className="grid sm:grid-cols-3 gap-6">
-                {events.map((e, i) => (
-                  <FadeUp key={e.id} delay={i * 80} direction="up">
-                    <div className="card border border-hairline p-5 flex gap-4 h-full">
-                      <div className="bg-gold-light text-navy px-3.5 py-2.5 text-center shrink-0 h-fit">
-                        <p className="font-display text-xl font-bold leading-none">
-                          {e.date ? new Date(e.date).getDate() : '--'}
-                        </p>
-                        <p className="text-[11px] font-semibold uppercase tracking-wide mt-1">
-                          {e.date ? new Date(e.date).toLocaleString('default', { month: 'short' }) : ''}
-                        </p>
+            </FadeUp>
+          )}
+
+          {/* Coming up — gold date chips */}
+          {showEvents && (
+            <div className={showNews ? 'lg:col-span-4' : 'lg:col-span-12'}>
+              <FadeUp direction="right">
+                <div className="flex items-center justify-between mb-2 pb-4 border-b-2 border-ink">
+                  <p className="flex items-center gap-2 text-[12px] font-bold tracking-[0.16em] uppercase text-ink">
+                    <CalendarDays className="h-4 w-4 text-crimson" /> Coming up
+                  </p>
+                  <Link href="/events" className="text-[13px] font-semibold text-inkmute hover:text-crimson transition-colors">
+                    All events
+                  </Link>
+                </div>
+              </FadeUp>
+              {events.length === 0 ? (
+                <FadeUp direction="right" delay={100}>
+                  <p className="text-inkmute text-sm mt-4">No upcoming events.</p>
+                </FadeUp>
+              ) : (
+                events.map((e, i) => (
+                  <FadeUp key={e.id} delay={i * 130} direction="right">
+                    <div className="group flex gap-4 py-5 border-b border-hairline items-center hover:border-gold transition-colors duration-300">
+                      <div className="shrink-0 w-[52px] text-center bg-gold-light text-navy py-2.5 group-hover:bg-gold transition-colors duration-300">
+                        <p className="font-display text-[22px] font-bold leading-none">{day(e.date)}</p>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.12em] mt-1">{mon(e.date)}</p>
                       </div>
                       <div className="min-w-0">
-                        <span className="badge bg-navy/10 text-navy">{e.category || 'Event'}</span>
-                        <h3 className="font-semibold text-ink text-[15px] leading-snug mt-2">{e.title}</h3>
+                        <p className="text-[10.5px] font-bold tracking-[0.14em] uppercase text-crimson mb-1">
+                          {e.category || 'Event'}
+                        </p>
+                        <h3 className="font-semibold text-ink text-[14.5px] leading-snug">{e.title}</h3>
                         {e.venue && (
-                          <p className="text-inkmute text-[13px] mt-1.5 flex items-center gap-1">
-                            <MapPin className="h-3.5 w-3.5 shrink-0" /> {e.venue}
+                          <p className="text-inkmute text-[12.5px] mt-1 flex items-center gap-1">
+                            <MapPin className="h-3 w-3 shrink-0" /> {e.venue}
                           </p>
                         )}
                       </div>
                     </div>
                   </FadeUp>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+                ))
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   )

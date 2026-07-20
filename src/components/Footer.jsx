@@ -17,19 +17,19 @@ const SOCIAL_ICONS = {
 const COLS = {
   School: [
     ['About', '/about'], ['Academics', '/academics'],
-    ['Faculty', '/academics/faculty'], ['Infrastructure', '/about/infrastructure'],
+    ['Faculty', '/academics#faculty'], ['Infrastructure', '/about#infrastructure'],
   ],
   Admissions: [
-    ['Process', '/admissions'], ['Fees', '/admissions/fees'],
-    ['FAQs', '/admissions/faqs'], ['Apply', '/admissions/apply'],
+    ['Process', '/admissions'], ['Fees', '/admissions#fees'],
+    ['FAQs', '/admissions#faqs'], ['Apply', '/admissions/apply'],
   ],
   Community: [
     ['News', '/news'], ['Events', '/events'],
     ['Gallery', '/gallery'], ['Careers', '/careers'],
   ],
-  Portals: [
-    ['Parents', '/portal'], ['Students', '/portal'],
-    ['Staff', '/portal'], ['Contact', '/contact'],
+  More: [
+    ['Portal', '/portal'], ['Contact', '/contact'],
+    ['Mandatory disclosure', '/disclosure'],
   ],
 }
 
@@ -52,12 +52,12 @@ export default function Footer() {
               <img src="/logo.png" alt="" className="h-11 w-11 object-contain"
                 onError={e => e.target.style.display = 'none'} />
               <div>
-                <p className="font-display text-[20px] font-semibold leading-tight">{schoolName}</p>
+                <p className="font-display text-[20px] font-semibold leading-tight">{schoolName}</p> 
                 <p className="font-display italic text-gold text-[14px]">{tagline}</p>
               </div>
             </div>
             <p className="text-white/60 text-[14px] leading-relaxed mb-6 max-w-xs">
-              A premier CBSE-affiliated school in Surat committed to nurturing excellence and shaping future leaders.
+              An NIOS-accredited open school in Surat, managed by Agram Charitable Trust — nurturing self-reliant, luminous learners.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-[13.5px] text-white/70">
@@ -107,8 +107,8 @@ export default function Footer() {
         <div className="max-w-grid mx-auto px-6 lg:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12.5px] text-white/40">
           <p>© {year} {schoolName}, Surat. All rights reserved.</p>
           <div className="flex items-center gap-5">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <Link href="/careers" className="hover:text-white transition-colors">Careers</Link>
             <p>Designed &amp; developed by <span className="text-gold font-medium">Aavrti Technology</span></p>
           </div>
         </div>

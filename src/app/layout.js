@@ -17,8 +17,8 @@ const instrumentSans = Instrument_Sans({
 
 export const metadata = {
   title: 'Agram Open School — Swayam Tejasvi Bhava',
-  description: 'Agram Open School, Surat — A premier CBSE school committed to nurturing excellence and holistic development. Admissions open for 2026-27.',
-  keywords: 'Agram Open School, CBSE school Surat, best school Surat, admissions 2026',
+  description: 'Agram Open School, Surat — An NIOS-accredited open school committed to flexible, learner-centric education and holistic development. Admissions open for 2026-27.',
+  keywords: 'Agram Open School, NIOS school Surat, open schooling Surat, best school Surat, admissions 2026',
 }
 
 export default function RootLayout({ children }) {

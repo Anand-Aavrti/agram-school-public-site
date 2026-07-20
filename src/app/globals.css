@@ -15,6 +15,7 @@
 
   --color-gold: #C99A3C;
   --color-gold-light: #F3E3BE;
+  --color-gold-dark: #A87D26;
 
   --color-hairline: #E9DFCB;
 
@@ -25,10 +26,6 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
   html, body {
     overflow-x: clip;
   }
@@ -40,6 +37,13 @@
     -webkit-font-smoothing: antialiased;
     font-size: 16px;
     line-height: 1.65;
+  }
+
+  /* Never crop the top of a photo or video: object-cover crops from the
+     bottom instead, and any scale effect grows downward from the top edge. */
+  img, video {
+    object-position: center top;
+    transform-origin: center top;
   }
 
   ::selection {
@@ -98,6 +102,10 @@
   }
   .link-quiet:hover { color: var(--color-crimson); }
   .link-quiet:hover::after { transform: scaleX(1); }
+
+  /* Active nav route: crimson with the underline held visible. */
+  .link-active { color: var(--color-crimson); }
+  .link-active::after { transform: scaleX(1); }
 
   /* Sharp-edged card: hairline border, no heavy shadow, accent bar on hover. */
   .card {
@@ -163,17 +171,32 @@
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
 
-  /* Directional scroll-reveal: FadeUp sets data-dir to pick the entry side. */
+  /* Directional scroll-reveal: FadeUp sets data-dir to pick the variant.
+     Replays on every viewport entry; vertical variants follow scroll direction. */
   .reveal {
     opacity: 0;
-    transition: opacity 0.96s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.96s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+      filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
   }
-  .reveal[data-dir="up"] { transform: translateY(36px); }
-  .reveal[data-dir="down"] { transform: translateY(-36px); }
-  .reveal[data-dir="left"] { transform: translateX(-64px); }
-  .reveal[data-dir="right"] { transform: translateX(64px); }
-  .reveal.in { opacity: 1; transform: none; }
+  .reveal[data-dir="up"] { transform: translateY(48px); }
+  .reveal[data-dir="down"] { transform: translateY(-48px); }
+  .reveal[data-dir="left"] { transform: translateX(-72px); }
+  .reveal[data-dir="right"] { transform: translateX(72px); }
+  /* Pop: scales up with a slight overshoot — for text sitting on imagery. */
+  .reveal[data-dir="pop"] {
+    transform: scale(0.82) translateY(26px);
+    transition-duration: 1.05s;
+    transition-timing-function: cubic-bezier(0.34, 1.45, 0.64, 1);
+  }
+  /* Zoom: image settles from a gentle over-zoom, anchored to the top
+     edge so the top of the photo is never pushed out of frame. */
+  .reveal[data-dir="zoom"] { transform: scale(1.1); transform-origin: center top; }
+  /* Blur: text sharpens into focus while drifting up. */
+  .reveal[data-dir="blur"] { transform: translateY(26px); filter: blur(12px); }
+  .reveal.in { opacity: 1; transform: none; filter: none; }
+  .reveal.no-anim { transition: none !important; }
 
   .animate-marquee {
     animation: marquee 38.4s linear infinite;
@@ -185,8 +208,26 @@
   100% { transform: translateX(-50%); }
 }
 
+@keyframes academics-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Spotlight story text pops up fresh on every slide change. */
+.spotlight-pop {
+  animation: spotlight-pop 0.9s cubic-bezier(0.34, 1.45, 0.64, 1) both;
+}
+@keyframes spotlight-pop {
+  from { opacity: 0; transform: scale(0.92) translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .spotlight-pop { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; filter: none; transition: none; }
   .img-treat { transition: none; }
   .animate-marquee { animation: none; }
 }

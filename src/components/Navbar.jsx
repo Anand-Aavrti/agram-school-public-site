@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ArrowUpRight, Menu, X, Phone, Mail } from 'lucide-react'
 import { getSiteSettings } from '@/lib/firestore'
 
@@ -17,6 +18,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [settings, setSettings] = useState(null)
+  const pathname = usePathname()
+
+  // A section stays active on its sub-routes too (/news/xyz → News).
+  const isActive = (href) => pathname === href || pathname.startsWith(href + '/')
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 8)
@@ -58,7 +63,9 @@ export default function Navbar() {
             <nav className="hidden lg:flex items-center gap-8">
               {NAV.map(n => (
                 <Link key={n.href} href={n.href}
-                  className="link-quiet text-[14.5px] font-medium text-ink">
+                  className={`link-quiet text-[14.5px] font-medium ${
+                    isActive(n.href) ? 'link-active text-crimson' : 'text-ink'
+                  }`}>
                   {n.label}
                 </Link>
               ))}
@@ -78,7 +85,10 @@ export default function Navbar() {
             <div className="px-6 py-8 space-y-5">
               {NAV.map(n => (
                 <Link key={n.href} href={n.href} onClick={() => setOpen(false)}
-                  className="block font-display text-2xl font-medium text-ink">
+                  className={`flex items-center gap-3 font-display text-2xl font-medium ${
+                    isActive(n.href) ? 'text-crimson' : 'text-ink'
+                  }`}>
+                  {isActive(n.href) && <span className="w-5 h-[2px] bg-crimson inline-block" />}
                   {n.label}
                 </Link>
               ))}

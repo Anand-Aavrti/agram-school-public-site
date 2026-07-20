@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import { getDocument } from '@/lib/firestore'
 import FadeUp from './FadeUp'
 
-const IMG = 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=1200&q=80'
+const IMG = '/science.jpeg'
 const FALLBACK = `We do not measure a school year by the syllabus it covers, but by the
 confidence, curiosity and character it leaves behind in every child. At Agram
 Open School, our teachers are asked to do something harder than teaching a
@@ -23,25 +23,33 @@ export default function LeadershipMessage() {
         <div className="grid lg:grid-cols-12 gap-14 items-center">
 
           <div className="lg:col-span-5 order-2 lg:order-1">
-            <FadeUp direction="left">
+            <FadeUp direction="pop">
               <p className="eyebrow">From the Principal&rsquo;s desk</p>
-              <blockquote className="font-display italic font-light text-2xl lg:text-[32px] leading-[1.35] tracking-[-0.005em] mt-6 text-ink">
-                &ldquo;{msg?.content || FALLBACK}&rdquo;
-              </blockquote>
+              {/* Per schema, school_info content is WYSIWYG HTML. */}
+              {msg?.content ? (
+                <blockquote
+                  className="font-display italic font-light text-2xl lg:text-[32px] leading-[1.35] tracking-[-0.005em] mt-6 text-ink [&_p]:mb-4 [&_p:last-child]:mb-0"
+                  dangerouslySetInnerHTML={{ __html: msg.content }}
+                />
+              ) : (
+                <blockquote className="font-display italic font-light text-2xl lg:text-[32px] leading-[1.35] tracking-[-0.005em] mt-6 text-ink">
+                  &ldquo;{FALLBACK}&rdquo;
+                </blockquote>
+              )}
               <div className="mt-8">
                 <p className="font-semibold text-[15px]">{msg?.name || 'Principal'}</p>
                 <p className="text-inkmute text-[13.5px]">{msg?.designation || 'Agram Open School'}</p>
               </div>
-              <Link href="/about/principal" className="mt-7 inline-flex items-center gap-2 text-[14.5px] font-semibold link-quiet">
+              <Link href="/about#principal" className="mt-7 inline-flex items-center gap-2 text-[14.5px] font-semibold link-quiet">
                 Read the full message <ArrowRight className="h-4 w-4" />
               </Link>
             </FadeUp>
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2">
-            <FadeUp direction="right">
+            <FadeUp delay={120} direction="blur">
               <div className="relative border border-hairline p-2">
-                <img src={msg?.photoUrl || IMG} alt="Principal, Agram Open School"
+                <img src={msg?.imageUrl || IMG} alt="Principal, Agram Open School"
                   className="w-full aspect-[16/11] object-cover img-treat" />
               </div>
             </FadeUp>

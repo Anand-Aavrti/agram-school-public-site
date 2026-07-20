@@ -5,11 +5,110 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { getDocument } from '@/lib/firestore'
 import FadeUp from './FadeUp'
 
-const IMG = 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600&q=80'
-const FALLBACK_CONTENT = 'Agram Open School is a CBSE-affiliated school in Surat built on a simple belief: children flourish when high expectations are matched with genuine care. Our classrooms are places of questions, not just answers.'
+const IMAGES = [
+  '/banner1.jpeg',
+  '/banner2.jpeg',
+  '/banner3.jpeg',
+  '/science.jpeg',
+  '/commerce.jpeg',
+  '/life1.jpeg',
+  '/life2.jpeg',
+  '/life3.jpeg',
+]
+const FALLBACK_CONTENT = 'Agram Open School is an NIOS-accredited open school in Surat built on a simple belief: children flourish when high expectations are matched with genuine care. Our classrooms are places of questions, not just answers.'
+
+// Three frames (big, bottom-right, top-left), each rotating on its own
+// randomized clock so the changes never feel synchronized. A shared slots
+// array guarantees no two frames ever show the same photo at once.
+const SLOT_TIMING = [
+  [3800, 6000], // big image
+  [2800, 4800], // bottom-right card
+  [4600, 7200], // top-left card
+]
+
+function ImageStack({ extraFirst }) {
+  const imgs = extraFirst ? [extraFirst, ...IMAGES] : IMAGES
+  const [slots, setSlots] = useState([0, 1, 2])
+
+  useEffect(() => {
+    const timers = []
+    const advance = (slot) => {
+      setSlots(prev => {
+        const used = new Set(prev)
+        const candidates = imgs.map((_, i) => i).filter(i => !used.has(i))
+        if (!candidates.length) return prev
+        const next = candidates[Math.floor(Math.random() * candidates.length)]
+        const copy = [...prev]
+        copy[slot] = next
+        return copy
+      })
+    }
+    const schedule = (slot) => {
+      const [min, max] = SLOT_TIMING[slot]
+      timers[slot] = setTimeout(() => {
+        advance(slot)
+        schedule(slot)
+      }, min + Math.random() * (max - min))
+    }
+    slots.forEach((_, slot) => schedule(slot))
+    return () => timers.forEach(clearTimeout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [imgs.length])
+
+  const [current, next, third] = slots
+
+  return (
+    <div className="relative">
+      {/* Big image */}
+      <div className="border border-hairline p-2 bg-white">
+        <div className="relative w-full aspect-[4/5] overflow-hidden">
+          {imgs.map((src, i) => (
+            <img key={src} src={src} alt="Life at Agram Open School"
+              className={`absolute inset-0 w-full h-full object-cover img-treat transition-all duration-[1200ms] ease-out ${
+                i === current ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+              }`} />
+          ))}
+          {/* Progress dots */}
+          <div className="absolute bottom-4 left-4 flex gap-1.5 z-10">
+            {imgs.map((_, i) => (
+              <span key={i}
+                className={`h-1 rounded-full transition-all duration-500 ${
+                  i === current ? 'w-6 bg-gold' : 'w-2 bg-white/50'
+                }`} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Small overlapping image — bottom-right corner */}
+      <div className="absolute -bottom-8 -right-4 sm:-bottom-10 sm:-right-10 w-32 sm:w-44 border-4 border-white shadow-xl bg-white">
+        <div className="relative w-full aspect-square overflow-hidden">
+          {imgs.map((src, i) => (
+            <img key={src} src={src} alt=""
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[900ms] ${
+                i === next ? 'opacity-100' : 'opacity-0'
+              }`} />
+          ))}
+        </div>
+      </div>
+
+      {/* Small overlapping image — top-left corner */}
+      <div className="absolute -top-5 -left-3 sm:-top-8 sm:-left-8 w-28 sm:w-36 border-4 border-white shadow-xl bg-white">
+        <div className="relative w-full aspect-square overflow-hidden">
+          {imgs.map((src, i) => (
+            <img key={src} src={src} alt=""
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[900ms] ${
+                i === third ? 'opacity-100' : 'opacity-0'
+              }`} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const HIGHLIGHTS = [
-  'CBSE affiliated with 30+ years of excellence',
+  'NIOS-accredited open schooling (school code AAO04028)',
   'Smart classrooms & modern infrastructure',
   'Experienced, dedicated faculty',
   'Holistic growth through sports, arts & academics',
@@ -25,26 +124,13 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-12 gap-14 items-center">
 
           <div className="lg:col-span-5 relative">
-            <FadeUp direction="left">
-              <div className="relative">
-                <div className="border border-hairline p-2 img-hover">
-                  <img src={about?.imageUrl || IMG} alt="A classroom at Agram Open School"
-                    className="w-full aspect-[4/5] object-cover img-treat" />
-                </div>
-                <div className="absolute -bottom-5 -right-3 sm:-bottom-7 sm:-right-8 bg-crimson text-white p-4 sm:p-5">
-                  <p className="font-display text-2xl sm:text-3xl font-bold leading-none">30+</p>
-                  <p className="text-[11px] sm:text-[12px] font-medium opacity-90 mt-1">Years of Excellence</p>
-                </div>
-                <div className="absolute -top-4 -left-3 sm:-top-6 sm:-left-8 bg-gold text-navy p-3.5 sm:p-4">
-                  <p className="font-display text-xl sm:text-2xl font-bold leading-none">1200+</p>
-                  <p className="text-[10px] sm:text-[11px] font-semibold mt-1">Happy Students</p>
-                </div>
-              </div>
+            <FadeUp direction="zoom">
+              <ImageStack extraFirst={about?.imageUrl} />
             </FadeUp>
           </div>
 
           <div className="lg:col-span-7">
-            <FadeUp delay={100} direction="right">
+            <FadeUp delay={150} direction="blur">
               <p className="eyebrow">The School</p>
               <h2 className="font-display font-semibold text-4xl lg:text-[46px] leading-[1.14] tracking-[-0.01em] mt-5">
                 Serious about learning.<br />
@@ -73,8 +159,8 @@ export default function AboutSection() {
                 <Link href="/about" className="btn-crimson">
                   About the School <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/about/vision" className="btn-outline-ink">
-                  Our Vision
+                <Link href="/academics" className="btn-outline-ink">
+                  Academics
                 </Link>
               </div>
             </FadeUp>

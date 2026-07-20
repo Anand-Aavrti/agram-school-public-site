@@ -2,15 +2,15 @@ import Link from 'next/link'
 import { ArrowUpRight, Phone, Mail } from 'lucide-react'
 import FadeUp from './FadeUp'
 
-const CTA_IMG = 'https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?w=2000&q=80'
+const CTA_IMG = '/banner1.jpeg'
 
 export default function AdmissionsCTA() {
   return (
     <section className="relative py-28 lg:py-40 overflow-hidden">
       <img src={CTA_IMG} alt="" className="absolute inset-0 w-full h-full object-cover img-treat" />
       <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-navy/60" />
-      <div className="absolute inset-0 opacity-[0.06]"
-        style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '28px 28px' }} />
+      {/* <div className="absolute inset-0 opacity-[0.06]"
+        style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '28px 28px' }} /> */}
 
       <div className="max-w-grid mx-auto px-6 lg:px-12 relative">
         <div className="grid lg:grid-cols-12 gap-10 items-end">

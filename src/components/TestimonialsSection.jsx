@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, i) => (
-            <FadeUp key={t.id} delay={i * 90} direction="up" className="min-w-0">
+            <FadeUp key={t.id} delay={i * 130} direction="pop" className="min-w-0">
               <div className="bg-white/[0.06] border border-white/10 p-7 backdrop-blur-sm hover:bg-white/[0.09] hover:border-gold/40 transition-colors h-full flex flex-col min-w-0">
                 <Quote className="h-8 w-8 text-gold mb-4 opacity-80" />
                 <p className="text-white/85 text-[15px] leading-relaxed flex-1 break-words">

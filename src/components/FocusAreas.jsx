@@ -7,7 +7,7 @@ const PILLARS = [
     num: '01',
     icon: BookOpenCheck,
     title: 'Academic rigour',
-    desc: 'A CBSE curriculum taught with depth, not just coverage — building thinkers, not memorisers. Every subject is anchored in real understanding rather than rote preparation for exams.',
+    desc: 'A curriculum taught with depth, not just coverage — building thinkers, not memorisers. Every subject is anchored in real understanding rather than rote preparation for exams.',
   },
   {
     num: '02',
