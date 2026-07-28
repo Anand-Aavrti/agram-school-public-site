@@ -8,17 +8,23 @@ import Navbar from '@/components/Navbar'
 import FadeUp from '@/components/FadeUp'
 import Footer from '@/components/Footer'
 
-export default function NewsArticleClient() {
+// initialArticle/initialMore come from the server (news/[id]/page.js), which
+// already fetched this exact id at build time for a prebuilt static page —
+// undefined means "not prebuilt, fetch client-side" (the /news/placeholder
+// shell that firebase.json rewrites unknown ids to); null means "server
+// looked it up and it doesn't exist / isn't visible".
+export default function NewsArticleClient({ initialArticle, initialMore = [] }) {
   const { id } = useParams()
-  const [article, setArticle] = useState(undefined) // undefined = loading, null = not found
-  const [more, setMore] = useState([])
+  const [article, setArticle] = useState(initialArticle) // undefined = loading, null = not found
+  const [more, setMore] = useState(initialMore)
 
   useEffect(() => {
+    if (initialArticle !== undefined) return
     if (!id) return
     getDocument('news', id).then(doc => setArticle(doc && isVisible(doc) ? doc : null))
     getCollection('news', { orderByField: 'createdAt', orderDir: 'desc' })
       .then(data => setMore(data.filter(isVisible).filter(n => n.id !== id).slice(0, 3)))
-  }, [id])
+  }, [id, initialArticle])
 
   return (
     <main>

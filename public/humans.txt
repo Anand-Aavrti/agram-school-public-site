@@ -1,0 +1,15 @@
+/* TEAM */
+School: Agram Open School
+Managed by: Agram Charitable Trust
+Accreditation: NIOS (National Institute of Open Schooling)
+Location: Surat, Gujarat, India
+Founded: 2015
+
+/* THANKS */
+Every teacher, coordinator and family who makes Agram what it is.
+
+/* SITE */
+Designed & developed by: Aavrti Technology
+Contact: anand@aavrti.com
+Stack: Next.js, React, Tailwind CSS, Firebase
+Last updated: 2026-07-28

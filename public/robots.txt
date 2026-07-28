@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agramopenschool.com/sitemap.xml
+Sitemap: https://agramopenschool.com/sitemap-news.xml

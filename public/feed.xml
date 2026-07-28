@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agram Open School — News</title>
+    <link>https://agramopenschool.com/news</link>
+    <atom:link href="https://agramopenschool.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Announcements, achievements and everyday moments from Agram Open School, Surat.</description>
+    <language>en-in</language>
+    <lastBuildDate>Thu, 09 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Students Win Gold at District Science Olympiad</title>
+      <link>https://agramopenschool.com/news/GUhZVNVrMROyRn8oYHWl</link>
+      <guid isPermaLink="true">https://agramopenschool.com/news/GUhZVNVrMROyRn8oYHWl</guid>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Achievement</category>
+      <description>Three students from Class 9 won gold medals at the District Science Olympiad.</description>
+    </item>
+    <item>
+      <title>New Smart Classrooms Inaugurated</title>
+      <link>https://agramopenschool.com/news/K55ovrsNi5uvBYbmVhjI</link>
+      <guid isPermaLink="true">https://agramopenschool.com/news/K55ovrsNi5uvBYbmVhjI</guid>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+      <category>Academic</category>
+      <description>The school inaugurated 5 new smart classrooms with interactive boards.</description>
+    </item>
+  </channel>
+</rss>

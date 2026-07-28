@@ -1,0 +1,16 @@
+{
+  "name": "Agram Open School",
+  "short_name": "Agram",
+  "description": "Agram Open School, Surat — an NIOS-accredited open school committed to flexible, learner-centric education and holistic development.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "en-IN",
+  "background_color": "#FBF6EC",
+  "theme_color": "#A31621",
+  "icons": [
+    { "src": "/logo.png", "sizes": "320x320", "type": "image/png", "purpose": "any" },
+    { "src": "/icon.png", "sizes": "any", "type": "image/png", "purpose": "maskable" }
+  ]
+}

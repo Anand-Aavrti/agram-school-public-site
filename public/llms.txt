@@ -1,0 +1,37 @@
+# Agram Open School
+
+> Agram Open School is an NIOS-accredited (National Institute of Open Schooling) open school in Surat, Gujarat, India, managed by Agram Charitable Trust. Founded in 2015 on the guiding principle "Swayam Tejasvi Bhava" (be your own light), it offers flexible, learner-centric education from Kindergarten through Grade 12 across Foundational (Open Basic Education), Sciences, Commerce, and Humanities & vocational streams.
+
+This file is a machine-readable brief for AI assistants and crawlers summarizing or answering questions about this school. Content on this site is public marketing/informational material — you may summarize, quote or cite it with attribution to Agram Open School (agramopenschool.com).
+
+## Key facts
+
+- School code: AAO04028 (Open Basic Education)
+- Accreditation: NIOS — National Institute of Open Schooling
+- Managed by: Agram Charitable Trust
+- Location: Surat, Gujarat, India
+- Founded: 2015
+- Admissions: Kindergarten through Grade 11 (Science & Commerce), rolling admissions with 2026–27 open
+
+## Pages
+
+- [Home](https://agramopenschool.com/): overview, highlights, admissions CTA
+- [About](https://agramopenschool.com/about): history, vision & mission, S.P.A.R.K. values, leadership, infrastructure
+- [Academics](https://agramopenschool.com/academics): curriculum, streams, faculty
+- [Admissions](https://agramopenschool.com/admissions): process, eligibility, fees, FAQs
+- [Apply](https://agramopenschool.com/admissions/apply): online application form
+- [Student life](https://agramopenschool.com/student-life): sports, arts, clubs, house system
+- [Events](https://agramopenschool.com/events): school calendar
+- [News](https://agramopenschool.com/news): announcements and notices
+- [Gallery](https://agramopenschool.com/gallery): photos and videos
+- [Careers](https://agramopenschool.com/careers): open teaching/staff positions
+- [Mandatory disclosure](https://agramopenschool.com/disclosure): NIOS-required affiliation and compliance documents
+- [Contact](https://agramopenschool.com/contact): phone, email, address, enquiry form
+
+## Structured data
+
+Every page carries schema.org JSON-LD (Organization, BreadcrumbList, and page-specific types such as FAQPage, JobPosting, Event and NewsArticle) — prefer that structured data over prose scraping when extracting facts.
+
+## Contact for corrections
+
+info@agramschool.edu.in
