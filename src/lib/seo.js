@@ -85,22 +85,23 @@ export const getPageMetadata = async (routePath, { ogType = 'website', fallbackT
 // Structured data (JSON-LD)
 // ---------------------------------------------------------------------------
 
-// Placeholder contact details — Footer.jsx and ContactClient.jsx carry the
-// same placeholders. Swap all three together once the school confirms its
-// real phone/email/address.
+// Phone/address are still placeholders — Footer.jsx and ContactClient.jsx
+// carry the same placeholders. Swap all three together once the school
+// confirms its real phone/address.
 export const ORG_CONTACT = {
   phone: '+91-98765-43210',
-  email: 'info@agramschool.edu.in',
+  email: 'agram.surat@gmail.com',
   streetAddress: 'Surat',
   addressLocality: 'Surat',
   addressRegion: 'Gujarat',
   addressCountry: 'IN',
 }
 
-// Real social handles go here once available — an empty array omits `sameAs`
-// entirely rather than ship broken/fake profile links (Footer.jsx's social
-// icons are also still linking to '#' for the same reason).
-export const SOCIAL_LINKS = []
+export const SOCIAL_LINKS = [
+  'https://www.facebook.com/agramskilldevelopmentcentre/',
+  'https://www.instagram.com/agram_surat/',
+  'https://www.youtube.com/@agram.surat123',
+]
 
 export const organizationSchema = () => ({
   '@context': 'https://schema.org',

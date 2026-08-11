@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "prebuild": "node --env-file=.env.local scripts/generate-seo-files.mjs",
     "build": "next build",
     "start": "next start",

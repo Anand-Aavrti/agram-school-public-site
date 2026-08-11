@@ -129,7 +129,7 @@ export default function ApplyClient() {
                   <Phone className="h-4 w-4 text-gold" /> +91 98765 43210
                 </p>
                 <p className="flex items-center gap-2.5 text-[14px] text-white/80">
-                  <Mail className="h-4 w-4 text-gold" /> info@agramschool.edu.in
+                  <Mail className="h-4 w-4 text-gold" /> agram.surat@gmail.com
                 </p>
               </div>
             </div>

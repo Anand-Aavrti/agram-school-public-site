@@ -39,7 +39,7 @@ export default function Navbar() {
         <div className="max-w-grid mx-auto px-6 lg:px-12 flex items-center justify-between h-10 text-[13px]">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-gold" /> +91 98765 43210</span>
-            <span className="flex items-center gap-1.5"><Mail className="h-3.5 w-3.5 text-gold" /> info@agramschool.edu.in</span>
+            <span className="flex items-center gap-1.5"><Mail className="h-3.5 w-3.5 text-gold" /> agram.surat@gmail.com</span>
           </div>
           <div className="flex items-center gap-6">
             <Link href="/portal" className="hover:text-white transition-colors">Parent / Student Portal</Link>
@@ -94,7 +94,7 @@ export default function Navbar() {
               ))}
               <div className="pt-5 hairline-t flex flex-col gap-4">
                 <span className="flex items-center gap-2 text-inkmute text-[13.5px]"><Phone className="h-4 w-4 text-crimson" /> +91 98765 43210</span>
-                <span className="flex items-center gap-2 text-inkmute text-[13.5px]"><Mail className="h-4 w-4 text-crimson" /> info@agramschool.edu.in</span>
+                <span className="flex items-center gap-2 text-inkmute text-[13.5px]"><Mail className="h-4 w-4 text-crimson" /> agram.surat@gmail.com</span>
                 <Link href="/portal" onClick={() => setOpen(false)} className="text-inkmute text-sm font-medium">Parent / Student portal</Link>
                 <Link href="/admissions/apply" onClick={() => setOpen(false)} className="btn-crimson w-fit">Apply Now <ArrowUpRight className="h-4 w-4" /></Link>
               </div>

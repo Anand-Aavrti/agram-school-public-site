@@ -10,7 +10,7 @@ import Footer from '@/components/Footer'
 
 const INFO = [
   { icon: Phone, title: 'Call us', lines: ['+91 98765 43210', 'Mon–Sat · 8:00 am – 4:00 pm'] },
-  { icon: Mail, title: 'Write to us', lines: ['info@agramschool.edu.in', 'We reply within one working day'] },
+  { icon: Mail, title: 'Write to us', lines: ['agram.surat@gmail.com', 'We reply within one working day'] },
   { icon: MapPin, title: 'Visit us', lines: ['Agram Open School', 'Surat, Gujarat, India'] },
   { icon: Clock, title: 'School hours', lines: ['Mon–Sat · 7:30 am – 2:30 pm', 'Front office open till 4:00 pm'] },
 ]
