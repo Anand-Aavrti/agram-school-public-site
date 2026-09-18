@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "school-management-cms"
+  },
+  "targets": {
+    "school-management-cms": {
+      "hosting": {
+        "website": [
+          "school-public"
+        ],
+        "demo-website": [
+          "eduportal-demo-site"
+        ]
+      }
+    }
   }
 }

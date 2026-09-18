@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar'
 import PageHero from '@/components/PageHero'
 import FadeUp from '@/components/FadeUp'
 import Footer from '@/components/Footer'
+import { SCHOOL_SHORT_NAME } from '@/lib/branding'
 
 const GRADES = ['Kindergarten', 'Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5', 'Grade 6', 'Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11 — Science', 'Grade 11 — Commerce']
 
@@ -97,7 +98,7 @@ export default function ApplyClient() {
                   <div className="sm:col-span-2">
                     <label className={label}>Anything we should know?</label>
                     <textarea rows={4} value={form.message} onChange={set('message')} className={field}
-                      placeholder="Previous school, sibling at Agram, preferred visit time…" />
+                      placeholder={`Previous school, sibling at ${SCHOOL_SHORT_NAME}, preferred visit time…`} />
                   </div>
                 </div>
                 {status === 'error' && (
@@ -129,7 +130,7 @@ export default function ApplyClient() {
                   <Phone className="h-4 w-4 text-gold" /> +91 98765 43210
                 </p>
                 <p className="flex items-center gap-2.5 text-[14px] text-white/80">
-                  <Mail className="h-4 w-4 text-gold" /> agram.surat@gmail.com
+                  <Mail className="h-4 w-4 text-gold" /> hello@demoschool.example
                 </p>
               </div>
             </div>

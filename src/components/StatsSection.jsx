@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Users, GraduationCap, CalendarClock, Scale } from 'lucide-react'
 import { getSiteSettings } from '@/lib/firestore'
 import FadeUp from './FadeUp'
+import { SCHOOL_CITY } from '@/lib/branding'
 
 export default function StatsSection() {
   const [d, setD] = useState(null)
@@ -11,7 +12,7 @@ export default function StatsSection() {
   const stats = [
     { icon: Users, n: d?.statsStudents || '1,200+', label: 'Students on roll' },
     { icon: GraduationCap, n: d?.statsTeachers || '80+', label: 'Faculty members' },
-    { icon: CalendarClock, n: d?.statsYears || '10+', label: 'Years in Surat' },
+    { icon: CalendarClock, n: d?.statsYears || '10+', label: `Years in ${SCHOOL_CITY}` },
     { icon: Scale, n: d?.statsAwards || '25+', label: 'Awards won' },
   ]
 

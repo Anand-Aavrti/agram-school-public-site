@@ -29,7 +29,7 @@ const FALLBACK_FAQS = [
   { q: 'When do admissions open for 2026–27?', a: 'Registrations are open now. Seats are offered in order of registration and interaction, and most grades fill by February — we encourage applying early.' },
   { q: 'Is there an entrance test?', a: 'For KG to Grade 5 there is no written test — only a friendly interaction with the child and parents. Grades 6 and above have a short readiness assessment in English and mathematics.' },
   { q: 'What is the fee structure?', a: 'Fees vary by grade and are shared transparently during your campus visit or on enquiry — with no hidden charges through the year. Sibling concessions are available.' },
-  { q: 'Do you provide transport?', a: 'Yes — GPS-tracked buses with trained attendants cover all major areas of Surat. Routes and charges are confirmed at admission.' },
+  { q: 'Do you provide transport?', a: 'Yes — GPS-tracked buses with trained attendants cover all major areas of the city. Routes and charges are confirmed at admission.' },
   { q: 'Can we visit before applying?', a: 'Please do. We prefer families to see the school on an ordinary working day — call the front office and we will arrange a walkthrough within the week.' },
 ]
 

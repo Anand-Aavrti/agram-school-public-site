@@ -10,8 +10,8 @@ import path from 'node:path'
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
-const SITE_URL = 'https://agramopenschool.com'
-const SITE_NAME = 'Agram Open School'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://demoschool.example'
+const SITE_NAME = process.env.NEXT_PUBLIC_SCHOOL_NAME || 'EduPortal Demo School'
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -23,7 +23,8 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
+const databaseId = process.env.NEXT_PUBLIC_FIRESTORE_DATABASE_ID
+const db = databaseId ? getFirestore(app, databaseId) : getFirestore(app)
 
 const publicDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public')
 

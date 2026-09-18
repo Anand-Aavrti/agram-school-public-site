@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { getDocument } from '@/lib/firestore'
 import FadeUp from './FadeUp'
+import { SCHOOL_NAME } from '@/lib/branding'
 
 const IMAGES = [
   '/banner1.jpeg',
@@ -15,7 +16,7 @@ const IMAGES = [
   '/life2.jpeg',
   '/life3.jpeg',
 ]
-const FALLBACK_CONTENT = 'Agram Open School is an NIOS-accredited open school in Surat built on a simple belief: children flourish when high expectations are matched with genuine care. Our classrooms are places of questions, not just answers.'
+const FALLBACK_CONTENT = `${SCHOOL_NAME} is an co-educational school built on a simple belief: children flourish when high expectations are matched with genuine care. Our classrooms are places of questions, not just answers.`
 
 // Three frames (big, bottom-right, top-left), each rotating on its own
 // randomized clock so the changes never feel synchronized. A shared slots
@@ -63,7 +64,7 @@ function ImageStack({ extraFirst }) {
       <div className="border border-hairline p-2 bg-white">
         <div className="relative w-full aspect-[4/5] overflow-hidden">
           {imgs.map((src, i) => (
-            <img key={src} src={src} alt="Life at Agram Open School"
+            <img key={src} src={src} alt={`Life at ${SCHOOL_NAME}`}
               className={`absolute inset-0 w-full h-full object-cover img-treat transition-all duration-[1200ms] ease-out ${
                 i === current ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
               }`} />
@@ -108,7 +109,7 @@ function ImageStack({ extraFirst }) {
 }
 
 const HIGHLIGHTS = [
-  'NIOS-accredited open schooling (school code AAO04028)',
+  'board-affiliated open schooling (school code XXXXXXXX)',
   'Smart classrooms & modern infrastructure',
   'Experienced, dedicated faculty',
   'Holistic growth through sports, arts & academics',

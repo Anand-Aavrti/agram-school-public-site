@@ -1,11 +1,12 @@
 import CareersClient from './CareersClient'
 import { getPageMetadata, breadcrumbSchema, getCollectionAtBuild, isVisible, ORG_CONTACT, SITE_URL } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 export async function generateMetadata() {
   return getPageMetadata('/careers', {
-    fallbackTitle: 'Careers — Teaching & Staff Openings | Agram Open School',
-    fallbackDescription: 'Teach at Agram Open School, Surat. We hire for patience and subject mastery, with small classes, structured mentoring and growth from within. See open positions and apply.',
+    fallbackTitle: `Careers — Teaching & Staff Openings | ${SCHOOL_NAME}`,
+    fallbackDescription: `Teach at ${SCHOOL_NAME}, ${SCHOOL_CITY}. We hire for patience and subject mastery, with small classes, structured mentoring and growth from within. See open positions and apply.`,
   })
 }
 

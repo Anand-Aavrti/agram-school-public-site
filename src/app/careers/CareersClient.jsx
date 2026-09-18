@@ -8,11 +8,12 @@ import Navbar from '@/components/Navbar'
 import PageHero from '@/components/PageHero'
 import FadeUp from '@/components/FadeUp'
 import Footer from '@/components/Footer'
+import { SCHOOL_SHORT_NAME } from '@/lib/branding'
 
 const REASONS = [
   { icon: GraduationCap, title: 'Teach properly', desc: 'Small classes and sensible workloads, so you can actually teach — not just finish portions.' },
   { icon: HeartHandshake, title: 'Be supported', desc: 'Termly training, mentoring for new teachers, and a staff room that behaves like a team.' },
-  { icon: TrendingUp, title: 'Grow here', desc: 'Coordinators, heads and leaders at Agram are promoted from within, not parachuted in.' },
+  { icon: TrendingUp, title: 'Grow here', desc: `Coordinators, heads and leaders at ${SCHOOL_SHORT_NAME} are promoted from within, not parachuted in.` },
 ]
 
 const field = 'w-full bg-white border border-hairline px-4 py-3.5 text-[15px] text-ink placeholder:text-inkmute/60 focus:outline-none focus:border-crimson transition-colors'
@@ -57,7 +58,7 @@ export default function CareersClient() {
         crumb="Careers"
         eyebrow="Work with us"
         title="Teach at"
-        accent="Agram."
+        accent={`${SCHOOL_SHORT_NAME}.`}
         sub="We hire for patience and subject mastery — in that order."
         watermark="Teach"
       />
@@ -152,8 +153,8 @@ export default function CareersClient() {
             <p className="text-inkmute text-[15px] leading-relaxed mt-5">
               We keep every application on file and respond to shortlisted candidates within two weeks. You can also email your résumé directly.
             </p>
-            <a href="mailto:careers@agramschool.edu.in" className="inline-flex items-center gap-2 mt-6 text-crimson text-[14px] font-semibold link-quiet">
-              <Mail className="h-4 w-4" /> careers@agramschool.edu.in
+            <a href="mailto:careers@demoschool.example" className="inline-flex items-center gap-2 mt-6 text-crimson text-[14px] font-semibold link-quiet">
+              <Mail className="h-4 w-4" /> careers@demoschool.example
             </a>
           </FadeUp>
 
@@ -163,7 +164,7 @@ export default function CareersClient() {
                 <CheckCircle2 className="h-12 w-12 text-crimson mx-auto" />
                 <h2 className="font-display font-semibold text-3xl mt-6">Application received</h2>
                 <p className="text-inkmute text-[15px] leading-relaxed mt-3 max-w-md mx-auto">
-                  Thank you — please also email your résumé to careers@agramschool.edu.in mentioning the position, so we can match it to your application.
+                  Thank you — please also email your résumé to careers@demoschool.example mentioning the position, so we can match it to your application.
                 </p>
               </div>
             ) : (
@@ -187,7 +188,7 @@ export default function CareersClient() {
                   </div>
                   <div className="sm:col-span-2">
                     <label className={label}>Experience</label>
-                    <input value={form.experience} onChange={set('experience')} className={field} placeholder="e.g. 5 years, NIOS senior secondary" />
+                    <input value={form.experience} onChange={set('experience')} className={field} placeholder="e.g. 5 years, senior secondary" />
                   </div>
                   <div className="sm:col-span-2">
                     <label className={label}>A few lines about you</label>
@@ -197,7 +198,7 @@ export default function CareersClient() {
                 </div>
                 {status === 'error' && (
                   <p className="text-crimson text-[14px] mt-6">
-                    Something went wrong — please email careers@agramschool.edu.in instead.
+                    Something went wrong — please email careers@demoschool.example instead.
                   </p>
                 )}
                 <button type="submit" disabled={status === 'sending'} className="btn-crimson mt-8 disabled:opacity-60">

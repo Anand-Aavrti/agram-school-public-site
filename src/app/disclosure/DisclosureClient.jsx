@@ -6,12 +6,13 @@ import Navbar from '@/components/Navbar'
 import PageHero from '@/components/PageHero'
 import FadeUp from '@/components/FadeUp'
 import Footer from '@/components/Footer'
+import { TRUST_NAME } from '@/lib/branding'
 
 // Static — affiliation facts have no admin editing surface.
 const AFFILIATION = [
-  { icon: Landmark, label: 'Trust', value: 'Agram Charitable Trust' },
-  { icon: ShieldCheck, label: 'Accreditation', value: 'NIOS — National Institute of Open Schooling' },
-  { icon: Hash, label: 'School code', value: 'AAO04028 (Open Basic Education)' },
+  { icon: Landmark, label: 'Trust', value: TRUST_NAME },
+  { icon: ShieldCheck, label: 'Accreditation', value: 'CBSE — Central Board of Secondary Education' },
+  { icon: Hash, label: 'School code', value: 'XXXXXXXX (sample — replace with your code)' },
 ]
 
 export default function DisclosureClient() {
@@ -38,8 +39,8 @@ export default function DisclosureClient() {
         eyebrow="Regulatory compliance"
         title="Mandatory"
         accent="disclosure."
-        sub="Affiliation, safety and statutory documents — published as required by NIOS."
-        watermark="NIOS"
+        sub="Affiliation, safety and statutory documents — published as required by the affiliating board."
+        watermark="Disclosure"
       />
 
       <section className="py-16 lg:py-20 bg-white hairline-b">

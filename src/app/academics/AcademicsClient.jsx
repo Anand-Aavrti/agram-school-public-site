@@ -12,10 +12,10 @@ import Footer from '@/components/Footer'
 const STREAM_IMAGES = ['/banner1.jpeg', '/banner2.jpeg', '/science.jpeg', '/commerce.jpeg']
 
 const FALLBACK_STREAMS = [
-  { id: 'f', name: 'Foundational learning (OBE)', subjects: 'English, Hindi, Gujarati, Mathematics, EVS', description: 'NIOS’s Open Basic Education programme for younger learners — self-paced foundations in literacy and numeracy, without the pressure of a fixed classroom clock.' },
-  { id: 's', name: 'Sciences', subjects: 'Physics, Chemistry, Biology, Mathematics', description: 'For learners drawn to the lab and the unknown — the same national NIOS curriculum, taught at a pace that respects how each student actually learns.' },
+  { id: 'f', name: 'Foundational years', subjects: 'English, Hindi, Gujarati, Mathematics, EVS', description: 'Foundational literacy and numeracy for our youngest learners, taught in small groups at a pace that suits each child.' },
+  { id: 's', name: 'Sciences', subjects: 'Physics, Chemistry, Biology, Mathematics', description: 'For learners drawn to the lab and the unknown — the full national curriculum, taught at a pace that respects how each student actually learns.' },
   { id: 'c', name: 'Commerce', subjects: 'Accountancy, Business Studies, Economics', description: 'Accountancy, business studies and economics for tomorrow’s entrepreneurs — taught with case studies drawn from real Indian businesses.' },
-  { id: 'h', name: 'Humanities & vocational', subjects: 'History, Political Science, Psychology, Data Entry Operations, Tourism', description: 'For learners headed toward the humanities, the arts or a hands-on vocational skill — NIOS lets subjects be mixed across streams rather than locked into one.' },
+  { id: 'h', name: 'Humanities & vocational', subjects: 'History, Political Science, Psychology, Data Entry Operations, Tourism', description: 'For learners headed toward the humanities, the arts or a hands-on vocational skill — elective combinations can be mixed across streams rather than locked into one.' },
 ]
 
 const APPROACH = [
@@ -51,7 +51,7 @@ export default function AcademicsClient() {
         eyebrow="Academics"
         title="A curriculum that takes children"
         accent="seriously."
-        sub="NIOS-accredited open schooling from foundational years through Grade 12 — taught for understanding, not just examinations."
+        sub="A full curriculum from the foundational years through Grade 12 — taught for understanding, not just examinations."
         watermark="Learn"
       />
 
@@ -76,7 +76,7 @@ export default function AcademicsClient() {
               Choose your own <em className="italic font-medium text-crimson">combination</em>
             </h2>
             <p className="text-inkmute text-[15px] leading-relaxed mt-5">
-              As an NIOS-accredited open school, Agram doesn&rsquo;t lock a learner into a single track — subjects can be mixed across streams to match each child&rsquo;s pace, interests and goals.
+              Our elective system doesn&rsquo;t lock a learner into a single track — subjects can be mixed across streams to match each child&rsquo;s pace, interests and goals.
             </p>
           </FadeUp>
 

@@ -4,6 +4,7 @@ import {
   breadcrumbSchema, SITE_URL, SITE_NAME,
 } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_NAME, SCHOOL_CITY } from '@/lib/branding'
 
 // Known article ids are fetched at build time so each gets its own fully
 // static, SEO-complete page (real title, OG image, canonical, NewsArticle
@@ -20,19 +21,19 @@ export async function generateMetadata({ params }) {
 
   if (id === 'placeholder') {
     return getPageMetadata('/news', {
-      fallbackTitle: 'News | Agram Open School',
-      fallbackDescription: 'Announcements, achievements and everyday moments from Agram Open School, Surat.',
+      fallbackTitle: `News | ${SCHOOL_NAME}`,
+      fallbackDescription: `Announcements, achievements and everyday moments from ${SCHOOL_NAME}, ${SCHOOL_CITY}.`,
     })
   }
 
   const article = await getDocAtBuild('news', id)
   if (!article || !isVisible(article)) {
-    return getPageMetadata('/news', { fallbackTitle: 'Story not found | Agram Open School' })
+    return getPageMetadata('/news', { fallbackTitle: `Story not found | ${SCHOOL_NAME}` })
   }
 
   const base = await getPageMetadata(`/news/${id}`, {
     ogType: 'article',
-    fallbackTitle: `${article.title} | Agram Open School`,
+    fallbackTitle: `${article.title} | ${SCHOOL_NAME}`,
     fallbackDescription: article.summary,
   })
 

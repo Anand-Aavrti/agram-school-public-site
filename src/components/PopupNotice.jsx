@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { X, ArrowRight } from 'lucide-react'
 import { getDocument, isVisible } from '@/lib/firestore'
 
-const SEEN_KEY = 'agram_popup_seen'
+const SEEN_KEY = 'demo_popup_seen'
 
 // Admin-controlled popup (site_settings/popup_notice). Off by default;
 // honors showOnce via localStorage per the schema.

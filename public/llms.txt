@@ -1,32 +1,32 @@
-# Agram Open School
+# EduPortal Demo School
 
-> Agram Open School is an NIOS-accredited (National Institute of Open Schooling) open school in Surat, Gujarat, India, managed by Agram Charitable Trust. Founded in 2015 on the guiding principle "Swayam Tejasvi Bhava" (be your own light), it offers flexible, learner-centric education from Kindergarten through Grade 12 across Foundational (Open Basic Education), Sciences, Commerce, and Humanities & vocational streams.
+> EduPortal Demo School is a co-educational day school managed by EduPortal Demo School Education Trust. Founded in 1995, it offers a full curriculum from Kindergarten through Grade 12 across Foundational, Sciences, Commerce, and Humanities & vocational streams.
 
-This file is a machine-readable brief for AI assistants and crawlers summarizing or answering questions about this school. Content on this site is public marketing/informational material — you may summarize, quote or cite it with attribution to Agram Open School (agramopenschool.com).
+This file is a machine-readable brief for AI assistants and crawlers summarizing or answering questions about this school. Content on this site is public marketing/informational material — you may summarize, quote or cite it with attribution to EduPortal Demo School (demoschool.example).
 
 ## Key facts
 
-- School code: AAO04028 (Open Basic Education)
-- Accreditation: NIOS — National Institute of Open Schooling
-- Managed by: Agram Charitable Trust
+- School code: XXXXXXXX (sample — replace with your code)
+- Accreditation: CBSE — Central Board of Secondary Education
+- Managed by: EduPortal Demo School Education Trust
 - Location: Surat, Gujarat, India
 - Founded: 2015
 - Admissions: Kindergarten through Grade 11 (Science & Commerce), rolling admissions with 2026–27 open
 
 ## Pages
 
-- [Home](https://agramopenschool.com/): overview, highlights, admissions CTA
-- [About](https://agramopenschool.com/about): history, vision & mission, S.P.A.R.K. values, leadership, infrastructure
-- [Academics](https://agramopenschool.com/academics): curriculum, streams, faculty
-- [Admissions](https://agramopenschool.com/admissions): process, eligibility, fees, FAQs
-- [Apply](https://agramopenschool.com/admissions/apply): online application form
-- [Student life](https://agramopenschool.com/student-life): sports, arts, clubs, house system
-- [Events](https://agramopenschool.com/events): school calendar
-- [News](https://agramopenschool.com/news): announcements and notices
-- [Gallery](https://agramopenschool.com/gallery): photos and videos
-- [Careers](https://agramopenschool.com/careers): open teaching/staff positions
-- [Mandatory disclosure](https://agramopenschool.com/disclosure): NIOS-required affiliation and compliance documents
-- [Contact](https://agramopenschool.com/contact): phone, email, address, enquiry form
+- [Home](https://demoschool.example/): overview, highlights, admissions CTA
+- [About](https://demoschool.example/about): history, vision & mission, S.P.A.R.K. values, leadership, infrastructure
+- [Academics](https://demoschool.example/academics): curriculum, streams, faculty
+- [Admissions](https://demoschool.example/admissions): process, eligibility, fees, FAQs
+- [Apply](https://demoschool.example/admissions/apply): online application form
+- [Student life](https://demoschool.example/student-life): sports, arts, clubs, house system
+- [Events](https://demoschool.example/events): school calendar
+- [News](https://demoschool.example/news): announcements and notices
+- [Gallery](https://demoschool.example/gallery): photos and videos
+- [Careers](https://demoschool.example/careers): open teaching/staff positions
+- [Mandatory disclosure](https://demoschool.example/disclosure): Board-required affiliation and compliance documents
+- [Contact](https://demoschool.example/contact): phone, email, address, enquiry form
 
 ## Structured data
 
@@ -34,4 +34,4 @@ Every page carries schema.org JSON-LD (Organization, BreadcrumbList, and page-sp
 
 ## Contact for corrections
 
-info@agramschool.edu.in
+info@demoschool.example

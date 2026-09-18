@@ -10,8 +10,9 @@ import LeadershipMessage from '@/components/LeadershipMessage'
 import StatsSection from '@/components/StatsSection'
 import AdmissionsCTA from '@/components/AdmissionsCTA'
 import Footer from '@/components/Footer'
+import { SCHOOL_NAME, SCHOOL_SHORT_NAME } from '@/lib/branding'
 
-const FALLBACK_CONTENT = `Agram Open School is an NIOS-accredited open school in Surat built on a simple belief: children flourish when high expectations are matched with genuine care. Our classrooms are places of questions, not just answers — and every child here is known by name, strength and struggle.`
+const FALLBACK_CONTENT = `${SCHOOL_NAME} is an co-educational school built on a simple belief: children flourish when high expectations are matched with genuine care. Our classrooms are places of questions, not just answers — and every child here is known by name, strength and struggle.`
 
 // Shown only when the admin hasn't added infrastructure entries yet.
 const FALLBACK_FACILITIES = [
@@ -19,7 +20,7 @@ const FALLBACK_FACILITIES = [
   { id: 'f2', name: 'Library', description: 'A quiet, well-stocked library with reading programmes for every grade.' },
   { id: 'f3', name: 'Smart classrooms', description: 'Interactive digital boards in every classroom, used to deepen — never replace — teaching.' },
   { id: 'f4', name: 'Sports grounds', description: 'Cricket, basketball and athletics facilities with structured coaching.' },
-  { id: 'f5', name: 'Safe transport', description: 'GPS-tracked buses covering major routes across Surat with trained attendants.' },
+  { id: 'f5', name: 'Safe transport', description: 'GPS-tracked buses covering major routes across the city with trained attendants.' },
   { id: 'f6', name: 'Campus safety', description: 'CCTV-monitored campus, verified staff and strict entry protocols.' },
 ]
 const FACILITY_ICONS = [FlaskConical, BookOpen, MonitorPlay, Trophy, Bus, ShieldCheck]
@@ -29,35 +30,35 @@ const VISION_MISSION = [
   {
     icon: Eye,
     label: 'The vision',
-    title: 'Swayam Tejasvi Bhava — be your own light',
-    desc: 'To cultivate an inclusive, flexible and empowering learning ecosystem where every student discovers their unique potential, takes ownership of their journey, and graduates as a self-reliant, luminous leader.',
+    title: 'Every child, their own path',
+    desc: 'To build a learning community where every student discovers their strengths, takes ownership of their progress, and leaves prepared for a life that reaches well beyond examinations.',
   },
   {
     icon: Compass,
     label: 'The mission',
-    title: 'Removing barriers, igniting the spark',
-    desc: 'To democratise education through a flexible, accessible, learner-centric environment — innovative open-schooling methods, personalised mentorship and a holistic curriculum that equip every student to be their own light.',
+    title: 'Teaching for understanding',
+    desc: 'To deliver a rigorous and inclusive education that pairs strong academic foundations with personalised mentorship, so every learner grows in confidence, character and capability.',
   },
 ]
 
 // Static — the founding story & milestones are finalised, fixed copy with no admin surface.
-const JOURNEY_INTRO = `Founded in 2015 on the Upanishadic blessing Swayam Tejasvi Bhava — be your own light — Agram Open School was built to challenge the "one-size-fits-all" approach to education, carving a path for dropouts, aspiring athletes, artists, slow learners and gifted children alike to reclaim their education on their own terms.`
+const JOURNEY_INTRO = `Founded in 1995, ${SCHOOL_NAME} began with four classrooms and a simple conviction: a school should adapt to its students, not the other way around. Three decades later that belief still shapes how every class is taught.`
 
 const JOURNEY = [
-  { tag: 'Foundation', year: '2015', icon: Sprout, title: 'The seed is sown', desc: 'Agram opens its doors as a pilot programme with just a handful of students, building a bridge curriculum for alternative learners out of a single learning centre.' },
-  { tag: 'Modernisation', year: 'Phase 2', icon: MonitorSmartphone, title: 'Embracing the digital frontier', desc: 'Recognising the need for wider accessibility, Agram launches its own digital learning portal — bringing high-quality, self-paced modules to students in remote areas.' },
-  { tag: 'Formal recognition', year: 'Phase 3', icon: BadgeCheck, title: 'National & board alignment', desc: 'Agram secures accreditation with NIOS, ensuring flexible learning is matched with universally valid certification for higher education.' },
-  { tag: 'Holistic expansion', year: 'Phase 4', icon: HeartHandshake, title: 'The guiding hand', desc: 'A dedicated 1-on-1 mentorship programme is introduced, matching every learner with a life coach for emotional resilience, career paths and independent study habits.' },
-  { tag: 'The Radiance', year: 'Present', icon: Rocket, title: 'A vibrant intellectuals’ network', desc: 'Our mentored learners go on to top universities, vocational careers, entrepreneurship and professional sports — proving self-illuminated learners can thrive anywhere.' },
+  { tag: 'Foundation', year: '1995', icon: Sprout, title: 'The first classroom', desc: 'The school opens with four classrooms, six teachers and sixty students, built around small classes and teachers who know every child by name.' },
+  { tag: 'Growth', year: '2003', icon: MonitorSmartphone, title: 'A campus takes shape', desc: 'Science and computer laboratories, a library and a sports ground are added, turning a single building into a full campus.' },
+  { tag: 'Recognition', year: '2010', icon: BadgeCheck, title: 'Board affiliation', desc: 'Formal affiliation is secured, aligning the curriculum with national standards while keeping the school\u2019s own teaching approach intact.' },
+  { tag: 'Modernisation', year: '2019', icon: HeartHandshake, title: 'Learning goes digital', desc: 'Smart classrooms and an online parent portal are introduced, giving families a clear daily view of attendance, homework and results.' },
+  { tag: 'Today', year: 'Present', icon: Rocket, title: 'A community of alumni', desc: 'Graduates go on to universities, vocational careers and enterprises of their own, and many return as mentors to the students who followed them.' },
 ]
 
-// Static — the S.P.A.R.K. framework is finalised, fixed copy with no admin surface.
+// Static — the L.E.A.R.N. framework is finalised, fixed copy with no admin surface.
 const CORE_VALUES = [
-  { letter: 'S', icon: Compass, title: 'Self-Reliance', sub: 'Swayam', desc: 'Independent thinking and self-discipline — the autonomy to chart one’s own path as a self-driven, lifelong learner.' },
-  { letter: 'P', icon: Users2, title: 'Perspective & Inclusivity', desc: 'We celebrate diversity and respect individual learning curves, creating a safe space where every student feels seen and valued.' },
-  { letter: 'A', icon: Shuffle, title: 'Adaptability & Flexibility', desc: 'Education should fit life, not the other way around — open-schooling pathways that let students learn at their own pace.' },
-  { letter: 'R', icon: Sparkles, title: 'Radiance & Excellence', sub: 'Tejasvi', desc: 'We aim beyond passing marks — for personal brilliance, moral integrity and the courage to let inner potential shine.' },
-  { letter: 'K', icon: BookOpen, title: 'Knowledge for Life', sub: 'Bhava', desc: 'Learning that goes beyond textbooks — practical wisdom and emotional resilience to step confidently into the world.' },
+  { letter: 'L', icon: Compass, title: 'Leadership', desc: 'The confidence to take initiative, make decisions and be accountable for them \u2014 practised in classrooms, clubs and on the field.' },
+  { letter: 'E', icon: Sparkles, title: 'Excellence', desc: 'Aiming past the pass mark for genuine mastery, personal best and work a student is willing to put their name to.' },
+  { letter: 'A', icon: Shuffle, title: 'Adaptability', desc: 'Learning how to learn, so that a changing world is met with curiosity rather than anxiety.' },
+  { letter: 'R', icon: Users2, title: 'Respect', desc: 'For peers, teachers, staff and difference of every kind \u2014 a school where every student feels seen and safe.' },
+  { letter: 'N', icon: BookOpen, title: 'Nurture', desc: 'Academic progress matched with emotional support, so children grow in resilience as well as in results.' },
 ]
 
 export default function AboutClient() {
@@ -82,8 +83,8 @@ export default function AboutClient() {
         eyebrow="The school"
         title="Serious about learning. Gentle about"
         accent="childhood."
-        sub="Who we are, what we believe, and the people who make Agram what it is."
-        watermark="Agram"
+        sub={`Who we are, what we believe, and the people who make ${SCHOOL_SHORT_NAME} what it is.`}
+        watermark={SCHOOL_SHORT_NAME}
       />
 
       {/* Our story — school_info/about */}
@@ -96,7 +97,7 @@ export default function AboutClient() {
                 {about?.title || <>A decade of one <em className="italic font-medium text-crimson">promise</em></>}
               </h2>
               <div className="relative mt-10 border border-hairline p-2">
-                <img src={about?.imageUrl || '/banner1.jpeg'} alt="Agram Open School campus"
+                <img src={about?.imageUrl || '/banner1.jpeg'} alt={`${SCHOOL_NAME} campus`}
                   className="w-full aspect-[4/3] object-cover img-treat" />
               </div>
             </FadeUp>
@@ -118,7 +119,7 @@ export default function AboutClient() {
       {/* Our journey — static founding story & milestones, no admin surface */}
       <section className="py-20 lg:py-28 bg-cream hairline-t relative overflow-hidden">
         <span aria-hidden className="absolute top-1/2 left-0 -translate-y-1/2 font-display italic font-semibold text-ink/[0.03] text-[160px] lg:text-[240px] leading-none select-none pointer-events-none whitespace-nowrap">
-          Since 2015
+          Since 1995
         </span>
         <div className="max-w-grid mx-auto px-6 lg:px-12 relative">
           <FadeUp direction="down" className="max-w-2xl mx-auto text-center mb-16 lg:mb-24">
@@ -157,7 +158,7 @@ export default function AboutClient() {
           <FadeUp direction="pop" className="max-w-lg mx-auto text-center mt-4 lg:mt-8">
             <Sparkles className="h-6 w-6 text-gold mx-auto" />
             <p className="font-display italic font-light text-xl lg:text-[22px] leading-snug text-ink mt-4">
-              And the flame of <span className="text-crimson font-medium not-italic">Swayam Tejasvi Bhava</span> burns brighter with every passing year.
+              And that founding conviction holds firmer with every passing year.
             </p>
           </FadeUp>
         </div>
@@ -197,13 +198,13 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Core values — static S.P.A.R.K. framework, no admin surface */}
+      {/* Core values — static L.E.A.R.N. framework, no admin surface */}
       <section className="py-20 lg:py-28 bg-white hairline-t">
         <div className="max-w-grid mx-auto px-6 lg:px-12">
           <FadeUp direction="down" className="max-w-xl mb-14">
             <p className="eyebrow">Our core values</p>
             <h2 className="font-display font-semibold text-4xl lg:text-[44px] leading-[1.14] tracking-[-0.01em] mt-5">
-              The <em className="italic font-medium text-crimson">S.P.A.R.K.</em> that guides us
+              The <em className="italic font-medium text-crimson">L.E.A.R.N.</em> values that guide us
             </h2>
           </FadeUp>
 
@@ -249,7 +250,7 @@ export default function AboutClient() {
                   dangerouslySetInnerHTML={{ __html: chairman.content }} />
                 <div className="mt-7">
                   <p className="font-semibold text-[15px]">{chairman.name || 'Chairman'}</p>
-                  <p className="text-inkmute text-[13.5px]">{chairman.designation || 'Agram Open School'}</p>
+                  <p className="text-inkmute text-[13.5px]">{chairman.designation || `${SCHOOL_NAME}`}</p>
                 </div>
               </FadeUp>
             </div>

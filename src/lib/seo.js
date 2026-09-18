@@ -5,9 +5,10 @@
 // the same `db` client instance.
 import { doc, getDoc, getDocs, collection, query, orderBy } from 'firebase/firestore'
 import { db } from './firebase'
+import { ADDRESS_LINE1, POSTAL_CODE, SCHOOL_CITY, SCHOOL_NAME, TRUST_NAME } from '@/lib/branding'
 
-export const SITE_URL = 'https://agramopenschool.com'
-export const SITE_NAME = 'Agram Open School'
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://demoschool.example'
+export const SITE_NAME = `${SCHOOL_NAME}`
 
 let globalSeoPromise = null
 export const getGlobalSeo = () => {
@@ -41,8 +42,8 @@ const normalizePath = (p) => {
 // (e.g. the admin hasn't filled in SEO settings) — a page's generateMetadata
 // returning an explicit `undefined` title/description can suppress the
 // parent layout's value entirely, so this must never be undefined.
-export const SITE_DEFAULT_TITLE = 'Agram Open School — Swayam Tejasvi Bhava'
-export const SITE_DEFAULT_DESCRIPTION = 'Agram Open School, Surat — An NIOS-accredited open school committed to flexible, learner-centric education and holistic development. Admissions open for 2026-27.'
+export const SITE_DEFAULT_TITLE = `${SCHOOL_NAME} — Learning for life`
+export const SITE_DEFAULT_DESCRIPTION = `${SCHOOL_NAME}, ${SCHOOL_CITY} — An board-affiliated open school committed to flexible, learner-centric education and holistic development. Admissions open for 2026-27.`
 
 // Returns a Next.js Metadata object for the given route path, merging the
 // matching pages_seo entry (if an admin created one) over the site-wide
@@ -90,17 +91,18 @@ export const getPageMetadata = async (routePath, { ogType = 'website', fallbackT
 // confirms its real phone/address.
 export const ORG_CONTACT = {
   phone: '+91-98765-43210',
-  email: 'agram.surat@gmail.com',
-  streetAddress: 'Surat',
-  addressLocality: 'Surat',
+  email: 'hello@demoschool.example',
+  streetAddress: ADDRESS_LINE1,
+  addressLocality: SCHOOL_CITY,
   addressRegion: 'Gujarat',
+  postalCode: POSTAL_CODE,
   addressCountry: 'IN',
 }
 
 export const SOCIAL_LINKS = [
-  'https://www.facebook.com/agramskilldevelopmentcentre/',
-  'https://www.instagram.com/agram_surat/',
-  'https://www.youtube.com/@agram.surat123',
+  'https://www.facebook.com/',
+  'https://www.instagram.com/',
+  'https://www.youtube.com/',
 ]
 
 export const organizationSchema = () => ({
@@ -108,18 +110,19 @@ export const organizationSchema = () => ({
   '@type': 'EducationalOrganization',
   '@id': `${SITE_URL}/#organization`,
   name: SITE_NAME,
-  alternateName: 'Agram Open School, Surat',
+  alternateName: `${SCHOOL_NAME}, ${SCHOOL_CITY}`,
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   image: `${SITE_URL}/logo.png`,
   description: SITE_DEFAULT_DESCRIPTION,
-  foundingDate: '2015',
-  parentOrganization: { '@type': 'Organization', name: 'Agram Charitable Trust' },
+  foundingDate: '1995',
+  parentOrganization: { '@type': 'Organization', name: TRUST_NAME },
   address: {
     '@type': 'PostalAddress',
     streetAddress: ORG_CONTACT.streetAddress,
     addressLocality: ORG_CONTACT.addressLocality,
     addressRegion: ORG_CONTACT.addressRegion,
+    postalCode: ORG_CONTACT.postalCode,
     addressCountry: ORG_CONTACT.addressCountry,
   },
   contactPoint: [{

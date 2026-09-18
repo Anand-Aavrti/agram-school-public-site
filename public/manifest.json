@@ -1,7 +1,7 @@
 {
-  "name": "Agram Open School",
-  "short_name": "Agram",
-  "description": "Agram Open School, Surat — an NIOS-accredited open school committed to flexible, learner-centric education and holistic development.",
+  "name": "EduPortal Demo School",
+  "short_name": "EduPortal",
+  "description": "EduPortal Demo School — a co-educational day school committed to rigorous, inclusive education and holistic development.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

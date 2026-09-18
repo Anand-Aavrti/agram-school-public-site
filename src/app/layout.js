@@ -6,6 +6,7 @@ import {
   organizationSchema, websiteSchema,
 } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -29,7 +30,7 @@ export async function generateMetadata() {
     metadataBase: new URL(SITE_URL),
     title,
     description,
-    keywords: 'Agram Open School, NIOS school Surat, open schooling Surat, best school Surat, admissions 2026',
+    keywords: `${SCHOOL_NAME}, CBSE school, admissions, best school ${SCHOOL_CITY}, admissions 2026`,
     applicationName: seo.siteName || SITE_NAME,
     authors: [{ name: seo.siteName || SITE_NAME, url: SITE_URL }],
     alternates: { canonical: '/' },

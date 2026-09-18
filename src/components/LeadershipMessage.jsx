@@ -4,11 +4,12 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { getDocument } from '@/lib/firestore'
 import FadeUp from './FadeUp'
+import { SCHOOL_NAME, SCHOOL_SHORT_NAME } from '@/lib/branding'
 
 const IMG = '/science.jpeg'
 const FALLBACK = `We do not measure a school year by the syllabus it covers, but by the
-confidence, curiosity and character it leaves behind in every child. At Agram
-Open School, our teachers are asked to do something harder than teaching a
+confidence, curiosity and character it leaves behind in every child. At ${SCHOOL_SHORT_NAME},
+our teachers are asked to do something harder than teaching a
 subject well — to notice the quiet student who needs encouragement, and the
 loud one who needs direction. That is the promise we make to every family
 who walks through our gates.`
@@ -38,7 +39,7 @@ export default function LeadershipMessage() {
               )}
               <div className="mt-8">
                 <p className="font-semibold text-[15px]">{msg?.name || 'Principal'}</p>
-                <p className="text-inkmute text-[13.5px]">{msg?.designation || 'Agram Open School'}</p>
+                <p className="text-inkmute text-[13.5px]">{msg?.designation || `${SCHOOL_NAME}`}</p>
               </div>
               <Link href="/about#principal" className="mt-7 inline-flex items-center gap-2 text-[14.5px] font-semibold link-quiet">
                 Read the full message <ArrowRight className="h-4 w-4" />
@@ -49,7 +50,7 @@ export default function LeadershipMessage() {
           <div className="lg:col-span-6 lg:col-start-7 order-1 lg:order-2">
             <FadeUp delay={120} direction="blur">
               <div className="relative border border-hairline p-2">
-                <img src={msg?.imageUrl || IMG} alt="Principal, Agram Open School"
+                <img src={msg?.imageUrl || IMG} alt={`Principal, ${SCHOOL_NAME}`}
                   className="w-full aspect-[16/11] object-cover img-treat" />
               </div>
             </FadeUp>

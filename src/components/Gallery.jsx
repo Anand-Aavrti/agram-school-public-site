@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { getCollection } from '@/lib/firestore'
 import FadeUp from './FadeUp'
+import { SCHOOL_SHORT_NAME } from '@/lib/branding'
 
 // Shown only until the admin has real gallery photos in Firestore.
 const FALLBACK_PHOTOS = [
@@ -44,7 +45,7 @@ export default function Gallery() {
           <FadeUp direction="down" className="max-w-xl">
             <p className="eyebrow">Campus life</p>
             <h2 className="font-display font-semibold text-4xl lg:text-[44px] leading-[1.14] tracking-[-0.01em] mt-5">
-              Life at <em className="italic font-medium text-crimson">Agram</em>
+              Life at <em className="italic font-medium text-crimson">{SCHOOL_SHORT_NAME}</em>
             </h2>
           </FadeUp>
           <Link href="/gallery" className="link-quiet text-[14.5px] font-semibold flex items-center gap-2">
@@ -55,7 +56,7 @@ export default function Gallery() {
         <div className="grid grid-cols-2 lg:grid-cols-4 grid-flow-row-dense gap-4 lg:gap-5 lg:auto-rows-[180px]">
           {list.map((p, i) => (
             <FadeUp key={p.url} delay={i * 90} direction="zoom" className={`${p.span} relative overflow-hidden img-hover group border border-hairline`}>
-              <img src={p.url} alt={p.caption || 'Life at Agram'} className="w-full h-full object-cover img-treat" />
+              <img src={p.url} alt={p.caption || `Life at ${SCHOOL_SHORT_NAME}`} className="w-full h-full object-cover img-treat" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-[360ms]" />
               {p.caption && (
                 <p className="absolute bottom-4 left-4 text-white text-[13.5px] font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-[360ms]">

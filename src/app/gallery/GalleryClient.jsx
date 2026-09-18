@@ -7,6 +7,7 @@ import PageHero from '@/components/PageHero'
 import FadeUp from '@/components/FadeUp'
 import AdmissionsCTA from '@/components/AdmissionsCTA'
 import Footer from '@/components/Footer'
+import { SCHOOL_SHORT_NAME } from '@/lib/branding'
 
 // Shown until the admin creates albums.
 const FALLBACK_PHOTOS = [
@@ -43,7 +44,7 @@ export default function GalleryClient() {
         crumb="Gallery"
         eyebrow="Campus life"
         title="Life at"
-        accent="Agram."
+        accent={`${SCHOOL_SHORT_NAME}.`}
         sub="Ordinary school days, extraordinary moments."
         watermark="Gallery"
       />
@@ -150,7 +151,7 @@ export default function GalleryClient() {
                 Videos
               </p>
               <h2 className="font-display font-semibold text-white text-4xl lg:text-[44px] leading-[1.14] tracking-[-0.01em] mt-5">
-                Agram in <em className="italic font-medium text-gold">motion</em>
+                {SCHOOL_SHORT_NAME} in <em className="italic font-medium text-gold">motion</em>
               </h2>
             </FadeUp>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

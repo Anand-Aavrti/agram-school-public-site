@@ -1,12 +1,12 @@
 /* TEAM */
-School: Agram Open School
-Managed by: Agram Charitable Trust
-Accreditation: NIOS (National Institute of Open Schooling)
+School: EduPortal Demo School
+Managed by: EduPortal Demo School Education Trust
+Accreditation: CBSE (Central Board of Secondary Education)
 Location: Surat, Gujarat, India
 Founded: 2015
 
 /* THANKS */
-Every teacher, coordinator and family who makes Agram what it is.
+Every teacher, coordinator and family who makes this school what it is.
 
 /* SITE */
 Designed & developed by: Aavrti Technology

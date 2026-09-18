@@ -1,11 +1,12 @@
 import GalleryClient from './GalleryClient'
 import { getPageMetadata, breadcrumbSchema, getCollectionAtBuild, SITE_URL } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 export async function generateMetadata() {
   return getPageMetadata('/gallery', {
-    fallbackTitle: 'Photo & Video Gallery — Campus Life | Agram Open School',
-    fallbackDescription: 'Photos and videos from Agram Open School, Surat — campus life, classrooms, sports days and school events.',
+    fallbackTitle: `Photo & Video Gallery — Campus Life | ${SCHOOL_NAME}`,
+    fallbackDescription: `Photos and videos from ${SCHOOL_NAME}, ${SCHOOL_CITY} — campus life, classrooms, sports days and school events.`,
   })
 }
 
@@ -30,7 +31,7 @@ export default async function Page() {
       '@type': 'ImageGallery',
       '@id': `${SITE_URL}/gallery#gallery`,
       url: `${SITE_URL}/gallery`,
-      name: 'Campus life at Agram Open School',
+      name: `Campus life at ${SCHOOL_NAME}`,
       isPartOf: { '@id': `${SITE_URL}/#website` },
       associatedMedia: list.map(p => ({
         '@type': 'ImageObject',

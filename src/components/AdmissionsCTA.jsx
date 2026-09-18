@@ -38,7 +38,7 @@ export default function AdmissionsCTA() {
               </div>
               <div className="flex flex-wrap gap-6 mt-8 lg:justify-end text-white/70">
                 <span className="flex items-center gap-2 text-[13.5px]"><Phone className="h-4 w-4 text-gold" /> +91 98765 43210</span>
-                <span className="flex items-center gap-2 text-[13.5px]"><Mail className="h-4 w-4 text-gold" /> admissions@agramschool.edu.in</span>
+                <span className="flex items-center gap-2 text-[13.5px]"><Mail className="h-4 w-4 text-gold" /> admissions@demoschool.example</span>
               </div>
             </FadeUp>
           </div>

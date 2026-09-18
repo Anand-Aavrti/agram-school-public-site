@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { getSiteSettings } from '@/lib/firestore'
+import { ADDRESS_LINE1, ADDRESS_LINE2, SCHOOL_CITY, SCHOOL_NAME, TRUST_NAME } from '@/lib/branding'
 
 const SocialIcon = ({ path, className }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}><path d={path} /></svg>
@@ -30,9 +31,9 @@ const SOCIAL_LINK_KEYS = { Facebook: 'facebook', Instagram: 'instagram', X: 'x',
 
 // Client-provided handles, used until the admin panel's own values are set.
 const FALLBACK_SOCIAL_LINKS = {
-  facebook: 'https://www.facebook.com/agramskilldevelopmentcentre/',
-  instagram: 'https://www.instagram.com/agram_surat/',
-  youtube: 'https://www.youtube.com/@agram.surat123',
+  facebook: 'https://www.facebook.com/',
+  instagram: 'https://www.instagram.com/',
+  youtube: 'https://www.youtube.com/',
 }
 
 const COLS = {
@@ -60,8 +61,8 @@ export default function Footer() {
 
   useEffect(() => { getSiteSettings().then(setSettings) }, [])
 
-  const schoolName = settings?.schoolName || 'Agram Open School'
-  const tagline = settings?.footerTagline || settings?.tagline || 'Swayam Tejasvi Bhava'
+  const schoolName = settings?.schoolName || `${SCHOOL_NAME}`
+  const tagline = settings?.footerTagline || settings?.tagline || 'Learning for life'
 
   return (
     <footer className="bg-navy text-white">
@@ -78,12 +79,12 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/60 text-[14px] leading-relaxed mb-6 max-w-xs">
-              An NIOS-accredited open school in Surat, managed by Agram Charitable Trust — nurturing self-reliant, luminous learners.
+              A co-educational day school managed by {TRUST_NAME} — nurturing curious, confident learners.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-3 text-[13.5px] text-white/70">
                 <MapPin className="h-4 w-4 text-gold shrink-0 mt-0.5" />
-                <span>Surat, Gujarat, India</span>
+                <span>{ADDRESS_LINE1}<br />{ADDRESS_LINE2}</span>
               </div>
               <div className="flex items-center gap-3 text-[13.5px] text-white/70">
                 <Phone className="h-4 w-4 text-gold shrink-0" />
@@ -91,7 +92,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 text-[13.5px] text-white/70">
                 <Mail className="h-4 w-4 text-gold shrink-0" />
-                <span>agram.surat@gmail.com</span>
+                <span>hello@demoschool.example</span>
               </div>
             </div>
             <div className="flex gap-3 mt-7">
@@ -129,7 +130,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-grid mx-auto px-6 lg:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12.5px] text-white/40">
-          <p>© {year} {schoolName}, Surat. All rights reserved.</p>
+          <p>© {year} {schoolName}, {SCHOOL_CITY}. All rights reserved.</p>
           <div className="flex items-center gap-5">
             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
             <Link href="/careers" className="hover:text-white transition-colors">Careers</Link>

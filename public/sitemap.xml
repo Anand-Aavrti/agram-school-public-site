@@ -1,123 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://agramopenschool.com/</loc>
+    <loc>https://demoschool.example/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/about</loc>
+    <loc>https://demoschool.example/about</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/about" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/about" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/academics</loc>
+    <loc>https://demoschool.example/academics</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/academics" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/academics" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/academics" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/academics" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/admissions</loc>
+    <loc>https://demoschool.example/admissions</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/admissions" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/admissions" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/admissions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/admissions" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/admissions/apply</loc>
+    <loc>https://demoschool.example/admissions/apply</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/admissions/apply" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/admissions/apply" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/admissions/apply" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/admissions/apply" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/careers</loc>
+    <loc>https://demoschool.example/careers</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/careers" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/careers" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/careers" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/careers" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/contact</loc>
+    <loc>https://demoschool.example/contact</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/contact" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/disclosure</loc>
+    <loc>https://demoschool.example/disclosure</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/disclosure" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/disclosure" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/disclosure" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/disclosure" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/events</loc>
+    <loc>https://demoschool.example/events</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/events" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/events" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/events" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/events" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/gallery</loc>
+    <loc>https://demoschool.example/gallery</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/gallery" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/gallery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/gallery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/gallery" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/news</loc>
+    <loc>https://demoschool.example/news</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/news" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/news" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/news" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/news" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/portal</loc>
+    <loc>https://demoschool.example/portal</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/portal" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/portal" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/portal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/portal" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/student-life</loc>
+    <loc>https://demoschool.example/student-life</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/student-life" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/student-life" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/student-life" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/student-life" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/news/GUhZVNVrMROyRn8oYHWl</loc>
+    <loc>https://demoschool.example/news/GUhZVNVrMROyRn8oYHWl</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/news/GUhZVNVrMROyRn8oYHWl" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/news/GUhZVNVrMROyRn8oYHWl" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/news/GUhZVNVrMROyRn8oYHWl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/news/GUhZVNVrMROyRn8oYHWl" />
   </url>
   <url>
-    <loc>https://agramopenschool.com/news/K55ovrsNi5uvBYbmVhjI</loc>
+    <loc>https://demoschool.example/news/K55ovrsNi5uvBYbmVhjI</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://agramopenschool.com/news/K55ovrsNi5uvBYbmVhjI" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://agramopenschool.com/news/K55ovrsNi5uvBYbmVhjI" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://demoschool.example/news/K55ovrsNi5uvBYbmVhjI" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://demoschool.example/news/K55ovrsNi5uvBYbmVhjI" />
   </url>
 </urlset>

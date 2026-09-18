@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ArrowUpRight, ChevronDown, Menu, X, Phone, Mail } from 'lucide-react'
 import { getSiteSettings } from '@/lib/firestore'
+import { SCHOOL_NAME } from '@/lib/branding'
 
 const NAV = [
   { label: 'About', href: '/about' },
@@ -15,8 +16,8 @@ const NAV = [
 ]
 
 const PORTAL_LINKS = {
-  Student: 'https://student.agramopenschool.com/',
-  Parent: 'https://parent.agramopenschool.com/',
+  Student: 'https://student.demoschool.example/',
+  Parent: 'https://parent.demoschool.example/',
 }
 
 export default function Navbar() {
@@ -35,8 +36,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  const schoolName = settings?.schoolName || 'Agram Open School'
-  const tagline = settings?.tagline || 'Swayam Tejasvi Bhava'
+  const schoolName = settings?.schoolName || `${SCHOOL_NAME}`
+  const tagline = settings?.tagline || 'Learning for life'
 
   return (
     <>
@@ -44,7 +45,7 @@ export default function Navbar() {
         <div className="max-w-grid mx-auto px-6 lg:px-12 flex items-center justify-between h-10 text-[13px]">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5"><Phone className="h-3.5 w-3.5 text-gold" /> +91 98765 43210</span>
-            <span className="flex items-center gap-1.5"><Mail className="h-3.5 w-3.5 text-gold" /> agram.surat@gmail.com</span>
+            <span className="flex items-center gap-1.5"><Mail className="h-3.5 w-3.5 text-gold" /> hello@demoschool.example</span>
           </div>
           <div className="flex items-center gap-6">
             <div className="relative group">
@@ -113,7 +114,7 @@ export default function Navbar() {
               ))}
               <div className="pt-5 hairline-t flex flex-col gap-4">
                 <span className="flex items-center gap-2 text-inkmute text-[13.5px]"><Phone className="h-4 w-4 text-crimson" /> +91 98765 43210</span>
-                <span className="flex items-center gap-2 text-inkmute text-[13.5px]"><Mail className="h-4 w-4 text-crimson" /> agram.surat@gmail.com</span>
+                <span className="flex items-center gap-2 text-inkmute text-[13.5px]"><Mail className="h-4 w-4 text-crimson" /> hello@demoschool.example</span>
                 <div className="flex flex-col gap-2">
                   <span className="text-inkmute text-[11px] font-semibold uppercase tracking-[0.08em]">Portal</span>
                   {Object.entries(PORTAL_LINKS).map(([label, url]) => (

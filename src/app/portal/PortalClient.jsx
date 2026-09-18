@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import PageHero from '@/components/PageHero'
 import FadeUp from '@/components/FadeUp'
 import Footer from '@/components/Footer'
+import { SCHOOL_SHORT_NAME } from '@/lib/branding'
 
 export default function PortalClient() {
   return (
@@ -13,7 +14,7 @@ export default function PortalClient() {
       <PageHero
         crumb="Portal"
         eyebrow="Parents · Students · Staff"
-        title="The Agram"
+        title={`The ${SCHOOL_SHORT_NAME}`}
         accent="portal."
         sub="Report cards, circulars, fee receipts and attendance — in one place."
         watermark="Portal"

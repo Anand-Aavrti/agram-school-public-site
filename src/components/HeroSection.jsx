@@ -4,15 +4,17 @@ import Link from 'next/link'
 import { ArrowUpRight, Users, Award, Clock } from 'lucide-react'
 import { getCollection, getSiteSettings, isVisible } from '@/lib/firestore'
 import FadeUp from './FadeUp'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 const HERO_IMG = '/banner2.jpeg'
 
 // Background videos play one after another: when one finishes it crossfades
-// into the next. Swap these files for real campus footage when ready.
+// into the next. Each poster is the clip's own first frame, so there is no
+// jump when playback starts. Swap these files for real campus footage.
 const VIDEOS = [
-  { src: '/videos/hero1.mp4', poster: '/banner1.jpeg' },
-  { src: '/videos/hero2.mp4', poster: '/banner2.jpeg' },
-  { src: '/videos/hero3.mp4', poster: '/banner3.jpeg' },
+  { src: '/videos/hero1.mp4', poster: '/hero1-poster.jpg' },
+  { src: '/videos/hero2.mp4', poster: '/hero2-poster.jpg' },
+  { src: '/videos/hero3.mp4', poster: '/hero3-poster.jpg' },
 ]
 
 export default function HeroSection() {
@@ -51,13 +53,13 @@ export default function HeroSection() {
   const stats = [
     { icon: Users, n: settings?.statsStudents || '1,200+', l: 'Students' },
     { icon: Award, n: settings?.statsTeachers || '80+', l: 'Faculty' },
-    { icon: Clock, n: settings?.statsYears || '10+', l: 'Years in Surat' },
+    { icon: Clock, n: settings?.statsYears || '10+', l: `Years in ${SCHOOL_CITY}` },
   ]
 
   return (
     <section className="relative flex flex-col min-h-[560px] sm:h-[92vh] sm:min-h-[560px] sm:max-h-[820px] overflow-hidden">
       {/* Fallback image underneath — shows until the first video is ready */}
-      <img src={image} alt="Students at Agram Open School"
+      <img src={image} alt={`Students at ${SCHOOL_NAME}`}
         className="absolute inset-0 w-full h-full object-cover img-treat" />
 
       {/* Video layers — the finished one crossfades into the next */}
@@ -95,7 +97,7 @@ export default function HeroSection() {
             </h1>
           )}
           <p className="text-white/80 text-base sm:text-lg mt-5 sm:mt-7 max-w-lg leading-relaxed">
-            {banner?.subtitle || 'An NIOS-accredited open school in Surat where every learner charts their own path — flexible, personal, and full of warmth.'}
+            {banner?.subtitle || 'An co-educational day school where every learner charts their own path — flexible, personal, and full of warmth.'}
           </p>
           <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-10">
             <Link href={ctaHref} className="btn-gold">

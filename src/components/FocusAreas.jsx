@@ -1,6 +1,7 @@
 'use client'
 import { Heart, BookOpenCheck, Trophy, Users2 } from 'lucide-react'
 import FadeUp from './FadeUp'
+import { SCHOOL_SHORT_NAME } from '@/lib/branding'
 
 const PILLARS = [
   {
@@ -25,7 +26,7 @@ const PILLARS = [
     num: '04',
     icon: Users2,
     title: 'A real community',
-    desc: 'Parents, faculty and alumni who stay involved and invested well beyond graduation day, keeping the Agram family close for years after.',
+    desc: `Parents, faculty and alumni who stay involved and invested well beyond graduation day, keeping the ${SCHOOL_SHORT_NAME} family close for years after.`,
   },
 ]
 
@@ -36,7 +37,7 @@ export default function FocusAreas() {
         <FadeUp direction="down" className="max-w-xl mb-14">
           <p className="eyebrow">Why families choose us</p>
           <h2 className="font-display font-semibold text-4xl lg:text-[44px] leading-[1.14] tracking-[-0.01em] mt-5">
-            What sets <em className="italic font-medium text-crimson">Agram</em> apart
+            What sets <em className="italic font-medium text-crimson">{SCHOOL_SHORT_NAME}</em> apart
           </h2>
         </FadeUp>
 

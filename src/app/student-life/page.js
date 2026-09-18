@@ -1,11 +1,12 @@
 import StudentLifeClient from './StudentLifeClient'
 import { getPageMetadata, breadcrumbSchema, SITE_URL } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 export async function generateMetadata() {
   return getPageMetadata('/student-life', {
-    fallbackTitle: 'Student Life — Sports, Arts & Houses | Agram Open School',
-    fallbackDescription: 'Sports, arts, music, clubs and the four-house system at Agram Open School, Surat — the parts of school children remember longest.',
+    fallbackTitle: `Student Life — Sports, Arts & Houses | ${SCHOOL_NAME}`,
+    fallbackDescription: `Sports, arts, music, clubs and the four-house system at ${SCHOOL_NAME}, ${SCHOOL_CITY} — the parts of school children remember longest.`,
   })
 }
 
@@ -27,7 +28,7 @@ export default function Page() {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
       '@id': `${SITE_URL}/student-life#activities`,
-      name: 'Student life at Agram Open School',
+      name: `Student life at ${SCHOOL_NAME}`,
       itemListElement: ACTIVITIES.map((a, i) => ({
         '@type': 'ListItem',
         position: i + 1,

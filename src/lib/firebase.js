@@ -11,5 +11,9 @@ const firebaseConfig = {
 }
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
-export const db = getFirestore(app)
+// Firestore database to use. Empty/unset → '(default)', which is the
+// client deployment. The product demo sets NEXT_PUBLIC_FIRESTORE_DATABASE_ID
+// to a named database (e.g. 'demo-database') in the same project.
+const databaseId = process.env.NEXT_PUBLIC_FIRESTORE_DATABASE_ID
+export const db = databaseId ? getFirestore(app, databaseId) : getFirestore(app)
 export default app

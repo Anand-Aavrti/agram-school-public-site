@@ -154,7 +154,7 @@ const albumCover = (a) => a.coverUrl || albumPhotos(a.id)[0]?.url
 getCollection('gallery_photos', { orderByField: 'createdAt', orderDir: 'desc' })
   .then(data => setPhotos(data.slice(0, 8)))
 ...
-<img src={p.url} alt={p.caption || 'Life at Agram'} className="w-full h-full object-cover img-treat" />
+<img src={p.url} alt={p.caption || 'Life at Greenwood'} className="w-full h-full object-cover img-treat" />
 ```
 
 `src/components/HeroSection.jsx` (`banners` collection):
@@ -166,7 +166,7 @@ getCollection('banners', { orderByField: 'order', orderDir: 'asc' }).then(data =
 })
 const image = banner?.imageUrl || HERO_IMG
 ...
-<img src={image} alt="Students at Agram Open School" className="absolute inset-0 w-full h-full object-cover img-treat" />
+<img src={image} alt="Students at Greenwood Public School" className="absolute inset-0 w-full h-full object-cover img-treat" />
 ```
 
 `src/components/TestimonialsSection.jsx`:
@@ -188,7 +188,7 @@ const image = banner?.imageUrl || HERO_IMG
 `src/components/LeadershipMessage.jsx` (`school_info/principal` doc):
 
 ```js
-<img src={msg?.imageUrl || IMG} alt="Principal, Agram Open School" ... />
+<img src={msg?.imageUrl || IMG} alt="Principal, Greenwood Public School" ... />
 ```
 
 `src/components/AboutSection.jsx` (`school_info/about` doc, forwarded to `ImageStack`):
@@ -200,7 +200,7 @@ const image = banner?.imageUrl || HERO_IMG
 `src/app/about/page.js` (`school_info/about`, `school_info/chairman`, `infrastructure` collection):
 
 ```js
-<img src={about?.imageUrl || '/banner1.jpeg'} alt="Agram Open School campus" className="w-full aspect-[4/3] object-cover img-treat" />
+<img src={about?.imageUrl || '/banner1.jpeg'} alt="Greenwood Public School campus" className="w-full aspect-[4/3] object-cover img-treat" />
 ...
 <img src={chairman.imageUrl || '/banner3.jpeg'} alt={chairman.name || 'Chairman'} ... />
 ...

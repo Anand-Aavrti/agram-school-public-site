@@ -1,11 +1,12 @@
 import DisclosureClient from './DisclosureClient'
 import { getPageMetadata, breadcrumbSchema, SITE_URL } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 export async function generateMetadata() {
   return getPageMetadata('/disclosure', {
-    fallbackTitle: 'Mandatory Disclosure — NIOS Compliance | Agram Open School',
-    fallbackDescription: 'Affiliation, safety and statutory documents published by Agram Open School, Surat as required by NIOS (National Institute of Open Schooling).',
+    fallbackTitle: `Mandatory Disclosure — Board Compliance | ${SCHOOL_NAME}`,
+    fallbackDescription: `Affiliation, safety and statutory documents published by ${SCHOOL_NAME}, ${SCHOOL_CITY} as required by the affiliating board.`,
   })
 }
 

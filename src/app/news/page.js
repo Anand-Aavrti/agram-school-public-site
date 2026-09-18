@@ -1,11 +1,12 @@
 import NewsClient from './NewsClient'
 import { getPageMetadata, breadcrumbSchema, getCollectionAtBuild, isVisible, SITE_URL } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 export async function generateMetadata() {
   return getPageMetadata('/news', {
-    fallbackTitle: 'News & Announcements | Agram Open School',
-    fallbackDescription: 'Announcements, achievements and everyday moments from Agram Open School, Surat.',
+    fallbackTitle: `News & Announcements | ${SCHOOL_NAME}`,
+    fallbackDescription: `Announcements, achievements and everyday moments from ${SCHOOL_NAME}, ${SCHOOL_CITY}.`,
   })
 }
 
@@ -21,7 +22,7 @@ export default async function Page() {
       '@type': 'CollectionPage',
       '@id': `${SITE_URL}/news#webpage`,
       url: `${SITE_URL}/news`,
-      name: 'News from Agram Open School',
+      name: `News from ${SCHOOL_NAME}`,
       isPartOf: { '@id': `${SITE_URL}/#website` },
       ...(news.length ? {
         mainEntity: {

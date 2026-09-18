@@ -7,11 +7,12 @@ import Navbar from '@/components/Navbar'
 import PageHero from '@/components/PageHero'
 import FadeUp from '@/components/FadeUp'
 import Footer from '@/components/Footer'
+import { ADDRESS_LINE1, ADDRESS_LINE2, SCHOOL_CITY, SCHOOL_NAME, mapSrc } from '@/lib/branding'
 
 const INFO = [
   { icon: Phone, title: 'Call us', lines: ['+91 98765 43210', 'Mon–Sat · 8:00 am – 4:00 pm'] },
-  { icon: Mail, title: 'Write to us', lines: ['agram.surat@gmail.com', 'We reply within one working day'] },
-  { icon: MapPin, title: 'Visit us', lines: ['Agram Open School', 'Surat, Gujarat, India'] },
+  { icon: Mail, title: 'Write to us', lines: ['hello@demoschool.example', 'We reply within one working day'] },
+  { icon: MapPin, title: 'Visit us', lines: [SCHOOL_NAME, ADDRESS_LINE1, ADDRESS_LINE2] },
   { icon: Clock, title: 'School hours', lines: ['Mon–Sat · 7:30 am – 2:30 pm', 'Front office open till 4:00 pm'] },
 ]
 
@@ -126,8 +127,8 @@ export default function ContactClient() {
           <FadeUp delay={150} direction="right">
             <div className="border border-hairline bg-white p-2">
               <iframe
-                title="Agram Open School on the map"
-                src="https://www.google.com/maps?q=Surat,+Gujarat,+India&output=embed"
+                title={`${SCHOOL_NAME} on the map`}
+                src={mapSrc()}
                 className="w-full aspect-[4/3] border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

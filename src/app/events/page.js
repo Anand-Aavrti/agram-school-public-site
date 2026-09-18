@@ -1,11 +1,12 @@
 import EventsClient from './EventsClient'
 import { getPageMetadata, breadcrumbSchema, getCollectionAtBuild, isVisible, ORG_CONTACT, SITE_URL } from '@/lib/seo'
 import JsonLd from '@/components/JsonLd'
+import { SCHOOL_CITY, SCHOOL_NAME } from '@/lib/branding'
 
 export async function generateMetadata() {
   return getPageMetadata('/events', {
-    fallbackTitle: 'School Events & Calendar | Agram Open School',
-    fallbackDescription: 'Sports days, exhibitions and celebrations at Agram Open School, Surat — the full upcoming events calendar.',
+    fallbackTitle: `School Events & Calendar | ${SCHOOL_NAME}`,
+    fallbackDescription: `Sports days, exhibitions and celebrations at ${SCHOOL_NAME}, ${SCHOOL_CITY} — the full upcoming events calendar.`,
   })
 }
 
@@ -28,7 +29,7 @@ export default async function Page() {
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: {
         '@type': 'Place',
-        name: e.venue || 'Agram Open School',
+        name: e.venue || `${SCHOOL_NAME}`,
         address: {
           '@type': 'PostalAddress',
           addressLocality: ORG_CONTACT.addressLocality,
